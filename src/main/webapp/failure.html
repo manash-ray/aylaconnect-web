@@ -1,0 +1,118 @@
+<html lang="en" ng-app="app">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 2 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<meta http-equiv="Page-Enter"
+	content="revealTrans(Duration=10.0,Transition=1)">
+<!-- Note there is no responsive meta tag here -->
+
+<link rel="icon" href="img/KH_Symbol.png">
+
+<title>Failure | Kritical Health App</title>
+
+</head>
+
+<body class="networkpage bodycss">
+
+	<div class="content defaultHeight">
+
+		<div class="container"
+			ng-controller="FailureController as failureController">
+			<div uib-alert ng-repeat="edu in alerts.edu"
+				ng-class="'alert-' + (edu.type || 'warning')">{{edu.msg}}</div>
+			<div id="printable">
+
+				<h2>OOPS..!! Something went wrong..!! Hit Repay..!!</h2>
+				<div class="row">
+					<div class="col-sm-2">
+						<dt>app name:</dt>
+					</div>
+					<div class="col-sm-8">
+						<dd>{{appName}}</dd></br>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2">
+						<dt>Payment ID:</dt>
+					</div>
+					<div class="col-sm-8">
+						<dd>{{paymentId}}</dd></br>
+					</div>
+				</div>
+				<!--  <div class="row">
+					<div class="col-sm-4">
+						<p>Request ID:</p>
+					</div>
+					<div class="col-sm-8">
+						<p>{{requestId}}</p>
+					</div>
+				</div>-->
+				<div class="row">
+					<div class="col-sm-2">
+						<dt>Total Price:</dt>
+					</div>
+					<div class="col-sm-8">
+						<dd>{{totalPrice}}</dd></br>
+					</div>
+				</div>
+
+			</div>
+			</br> </br>
+			<div>
+			<button class="btn btn-info nomargin btn-info-nomargin "
+				ng-click="repayCoupon()">
+				<span class="glyphicon glyphicon-repeat"></span> Repay
+			</button>
+
+			<button class="btn btn-danger" ng-click="cancelCoupon()">
+				<span class="	glyphicon glyphicon-remove"></span> Cancel
+			</button>
+			</div>
+		</div>
+
+	</div>
+
+
+	<!-- <div class="main-footer full-width">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6">
+					<a href="index.html"><img src="img/kh_logo.png" alt="Kritical"
+						class="img-responsive"></a>
+				</div>
+				<div class="col-sm-6">
+					<p class="nav navbar-nav pull-right">
+						<a class="" href="#">About</a> &nbsp; <a class="" href="#">Networks</a>
+						&nbsp; <a class="" href="#">Groups</a> &nbsp; <a class=""
+							href="blog.html">Blogs</a> &nbsp;
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+
+					<p class="text-center">
+						<a class="" href="#">Careers</a> | <a class="" href="#">About</a>
+						| <a class="" href="#">Cookie Policy</a> | <a class="" href="#">Privacy
+							Policy</a> | <a class="" href="#">User Agreement</a>
+					</p>
+				</div>
+				<div class="col-sm-12 text-center">
+					<p class="">Kritical Health Corporation © 2016</p>
+				</div>
+			</div>
+		</div>
+	</div> -->
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+
+
+	<script src="js/bootbox.js"></script>
+
+	<!-- <script src="js/customjs.js"></script> -->
+</body>
+</html>

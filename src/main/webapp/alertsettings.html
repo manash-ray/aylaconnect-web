@@ -1,0 +1,162 @@
+<html lang="en" ng-adm="app">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 2 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<meta http-equiv="Page-Enter"
+	content="revealTrans(Duration=10.0,Transition=1)">
+<!-- Note there is no responsive meta tag here -->
+
+<link rel="icon" href="img/KH_Symbol.png">
+
+<title>Alerts</title>
+
+<style>
+.wc-form-control-text{
+  display: block;
+    width: 25%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #d9e5ee;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    max-width:25%;
+}
+
+.tf{
+font-size: 12px;
+align : left;
+text-align: left;
+}
+
+</style>
+
+</head>
+
+<body class="">
+
+	<div class="">
+		<div ng-controller="AlertsController as alertsController">
+
+			<div class="row" >
+				<div class="col-md-12">
+					<div class="ad-card">
+						
+						<h3>Alert Settings </h3>
+																	
+							<div class="row">											
+								<div class="spacer5"></div>	
+							<h4>Alerts List <button type="button" class="btn btn-follow pull-right "																	
+																	><a href="newalert"><span style="color:white">Create Alert</span></a></button></h4>
+							
+								<div class="row" ></row>
+								<div class="save-content">
+									
+									<div class="container-box" style="padding-left: 0px">
+
+
+										
+											<div class="row">
+											<div class="form-group">
+												<div class="col-xs-1">
+													<label class="form-control-label tf">Enabled</label>
+												
+												</div>
+												<div class="col-xs-3">
+													<label class="form-control-label tf">Name</label>
+												
+												</div>
+												<div class="col-xs-2">
+													<label class="form-control-label tf">Model</label>
+												
+												</div>
+												<div class="col-xs-2">
+													<label class="form-control-label tf">Rule</label>
+												
+												</div>
+												<div class="col-xs-2">
+													<label class="form-control-label tf">Alert Type</label>
+												
+												</div>
+												
+												
+																					
+											</div>
+											</div>
+											<div class="row">
+												<div class="form-group">										
+													
+													
+													<div ng-repeat="x in alertsController.setalerts">
+													<div class="row">
+															<div class="col-sm-12">
+																<div class="form-group">
+																
+																<div class="col-xs-1 tf"  >
+																	<input type="checkbox"
+                  														 ng-model="x.is_enabled">
+                  												</div>			 
+																	
+																</div>
+																<div class="col-xs-3 tf"  >
+																	<span >{{x.name}}</span>
+																	
+																</div>
+																
+																<div class="col-xs-2 tf" >
+																	<span >{{x.model}}</span>
+																	
+																</div>
+																<div class="col-xs-2 tf"  >
+																	<span>{{x.ruledesc}}</span>
+																	
+																</div>
+																<div class="col-xs-2 tf"  >
+																	<span>{{x.type}}</span>
+																	
+																</div>
+																<button type="button"
+																	class="btn btn-follow pull-right mgleft10 mgtop2"																	
+																	ng-click="">View</button>
+															
+																</div>
+														</div>
+												</div>
+												</div>
+												
+                  								</div>	
+                  						
+											</div>
+											
+											
+									</div>
+								</div>
+							
+						</div>
+					</div>
+				</div>
+				
+
+
+
+			</div>
+		</div>
+
+
+
+	
+	<script src="js/bootbox.js"></script>
+	
+
+</body>
+</html>

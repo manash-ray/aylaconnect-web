@@ -1,0 +1,174 @@
+<html lang="en" ng-adm="app">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 2 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<meta http-equiv="Page-Enter"
+	content="revealTrans(Duration=10.0,Transition=1)">
+<!-- Note there is no responsive meta tag here -->
+
+<link rel="icon" href="img/KH_Symbol.png">
+
+<title>Alerts</title>
+
+<style>
+.wc-form-control-text{
+  display: block;
+    width: 25%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #d9e5ee;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    max-width:25%;
+}
+
+.tf{
+font-size: 12px;
+align : left;
+text-align: left;
+}
+
+</style>
+
+</head>
+
+<body class="">
+
+	<div class="">
+		<div ng-controller="UserController as userController">
+
+			<div class="row" >
+				<div class="col-md-12">
+					<div class="ad-card">
+						
+						<h3>User Management <button type="button" class="btn btn-follow pull-right mgleft10 mgtop2"																	
+																	><a href="alerts"><span style="color:white">Device Alerts</span></a></button></h3>
+							<h4>Staff Users <button type="button" class="btn btn-follow pull-right mgleft10 mgtop2"																	
+																	><a href="newstaff"><span style="color:white">Create User</span></a></button></h4>
+							
+
+							
+								
+								<div class="save-content">
+									
+									<div class="container-box" style="padding-left: 0px">
+
+
+										
+											<div class="row">
+											<div class="form-group">
+												<div class="col-xs-2">
+													<label class="form-control-label tf">User ID</label>
+												
+												</div>
+												
+												<div class="col-xs-2">
+													<label class="form-control-label tf">Name</label>
+												
+												</div>
+												<div class="col-xs-2">
+													<label class="form-control-label tf">Role</label>
+												
+												</div>
+												<div class="col-xs-2">
+													<label class="form-control-label tf">Email</label>
+												
+												</div>
+												<div class="col-xs-3">
+													<label class="form-control-label tf">Mobile</label>
+												
+												</div>
+												
+												
+																					
+											</div>
+											</div>
+											<div class="row">
+												<div class="form-group">										
+													
+													
+													<div ng-repeat="x in userController.staffs">
+													<div class="row">
+															<div class="col-sm-12">
+																<div class="form-group">
+																<div class="col-xs-2 tf"  >
+																	<span >{{x.id}}</span>
+																	
+																</div>
+																
+																<div class="col-xs-2 tf"  >
+																	<span >{{x.firstName}} {{x.lastName}}</span>
+																	
+																</div>
+																
+																<div class="col-xs-2 tf" >
+																	<span >{{x.role}}</span>
+																	
+																</div>
+																<div class="col-xs-2 tf"  >
+																	<span>{{x.email}}</span>
+																	
+																</div>
+																<div class="col-xs-3 tf" >
+																	<span >{{x.mobile}}</span>
+																	
+																</div>
+																
+																<button type="button"
+																	class="btn btn-follow pull-right mgleft10 mgtop2"																	
+																	ng-click="">View</button>
+															
+																</div>
+														</div>
+												</div>
+												</div>
+													
+														
+													
+													
+													
+												
+                  								</div>	
+                  						
+											</div>
+											
+											
+																									
+											
+											
+											
+										
+
+										
+									</div>
+								</div>
+							
+						</div>
+					</div>
+				</div>
+				
+
+
+
+			</div>
+		</div>
+
+
+
+	
+	<script src="js/bootbox.js"></script>
+	
+
+</body>
+</html>

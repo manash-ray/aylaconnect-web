@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+<title>
+	.</title>
+
+<!-- Meta -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+
+<!-- CSS Global Compulsory -->
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+
+<!-- CSS Implementing Plugins -->
+<link rel="stylesheet" href="assets/plugins/animate.css">
+
+
+
+<!-- CSS Customization -->
+<link rel="stylesheet" href="assets/css/custom.css">
+<style>
+#imaginary_container {
+	margin-top: 20%; /* Don't copy this */
+}
+
+.stylish-input-group .input-group-addon {
+	background: white !important;
+}
+
+.stylish-input-group .form-control {
+	border-right: 0;
+	box-shadow: 0 0 0;
+	border-color: #ccc;
+}
+
+.stylish-input-group button {
+	border: 0;
+	background: transparent;
+}
+
+.pinkText{
+	color:#ED4169!important;
+}
+.blueText{
+	color:#20cad5!important;
+}
+.circle {
+	height: 120px;
+	width: 120px;
+	line-height: 160px;
+	-moz-border-radius: 30px; /* or 50% */
+	border-radius: 30px; /* or 50% */
+	background-color: #fff;
+}
+
+.carouselmage {
+	width: 100px;
+	height: 100px;
+	padding: 0px;
+	vertical-align: middle;
+}
+
+.caption {
+	text-align: center;
+}
+
+.buttonColor {
+	background-color: #20cad5;
+	color: initial;
+	color: #f8f8f8;
+	font-weight: bold;
+}
+
+.buttonColor:hover {
+	background-color: #20cad5;
+	color: initial;
+	color: #fff;
+	font-weight: bold;
+}
+
+.aboutKhSection {
+	padding: 100px 100px;
+}
+
+.aboutKhSectionInner .aboutKhSectionSign {
+	padding: 10px 0px;
+	font-family: "Open Sans";
+	font-size: 150%;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.aboutKhSectionText {
+	font-family: "Open Sans";
+	text-transform: uppercase;
+	text-align: center;
+	padding: 20px 0px 10px 0px;
+	font-weight: bold;
+	font-size: 90%;
+}
+
+@media only screen and (max-width: 800px) {
+	.aboutKhSectionText {
+		font-family: "Open Sans";
+		text-transform: uppercase;
+		text-align: center;
+		padding: 20px 0px 10px 0px;
+		font-weight: bold;
+		font-size: 90%;
+	}
+	.aboutKhSectionImage {
+		max-width: 50%;
+	}
+	.promo-text-v2{
+		font-size:200%;
+	}
+}
+
+.aboutKhSectionImage {
+	max-width: 50%;
+}
+
+@media only screen and (max-width: 500px) {
+	.aboutKhSectionText {
+		font-family: "Open Sans";
+		text-transform: uppercase;
+		text-align: center;
+		padding: 20px 0px 10px 0px;
+		font-weight: bold;
+		font-size: 60%;
+	}
+	.aboutKhSectionImage {
+		max-width: 130%;
+	}
+	.aboutKhSectionSign {
+		font-size: 80%;
+	}
+}
+
+.aboutKhSection {
+	padding-left: 50px;
+}
+
+.parallaxEffect {
+	position: relative;
+}
+
+.aboutKhSectionInner {
+	padding: 0px;
+}
+
+.bounce {
+height:100%;
+width:100%;
+ position: relative;
+    -webkit-animation: mymove 1.5s ; / Safari 4.0 - 8.0 /
+    animation: mymove 1.5s ;
+    
+}
+
+/ Safari 4.0 - 8.0 /
+@-webkit-keyframes mymove {
+    from {bottom: -200px;}
+    to {bottom: 0px;}
+}
+
+@keyframes mymove {
+    from {bottom: -200px;}
+    to {bottom: 0px;}
+}
+.homePageIconImage {
+	width: 180px;
+	height: 180px;
+	padding: 0px;
+	vertical-align: middle;
+}
+</style>
+<script>
+	myID = document.getElementById("myID");
+
+	var myScrollFunc = function() {
+		var y = window.scrollY;
+		if (y >= 450) {
+			myID.className = "bounce"
+		} else {
+			myID.className = ""
+		}
+	};
+
+	window.addEventListener("scroll", myScrollFunc);
+
+	$(function() {
+		$(window).scroll(function() {
+			if ($(this).scrollTop() > 450) {
+				$('#topbar, .cart-label').delay(5000).fadeOut(1000);
+				$('#logo-img-first img')
+				/* .css({'width':'','height':''}) */
+				.attr('src', 'img/animation/color1.png');
+			}
+			if ($(this).scrollTop() < 100) {
+				$('#logo, #topbar, .cart-label').hide().fadeIn(1000);
+				$('#logo-img-first img').css({
+
+				})
+				/*  .css({'width':'','height':''})     */
+				.attr('src', 'img/animation/1.png');
+			}
+		});
+	});
+	$(function() {
+		$(window).scroll(function() {
+			if ($(this).scrollTop() > 450) {
+				$('#topbar, .cart-label').fadeOut(2000);
+				$('#logo-img-second img')
+				/* .css({'width':'','height':''}) */
+				.attr('src', 'img/animation/color2.png');
+			}
+			if ($(this).scrollTop() < 100) {
+				$('#logo, #topbar, .cart-label').fadeIn(2000);
+				$('#logo-img-second img')
+				/*  .css({'width':'','height':''})     */
+				.attr('src', 'img/animation/2.png');
+			}
+		});
+	});
+	$(function() {
+		$(window).scroll(function() {
+			if ($(this).scrollTop() > 450) {
+				$('#topbar, .cart-label').fadeOut(3000);
+				$('#logo-img-third img')
+				/* .css({'width':'','height':''}) */
+				.attr('src', 'img/animation/color3.png');
+			}
+			if ($(this).scrollTop() < 100) {
+				$('#logo, #topbar, .cart-label').fadeIn(3000);
+				$('#logo-img-third img')
+				/*  .css({'width':'','height':''})     */
+				.attr('src', 'img/animation/3.png');
+			}
+		});
+	});
+	$(function() {
+		$(window).scroll(function() {
+			if ($(this).scrollTop() > 450) {
+				$('#topbar, .cart-label').fadeOut(4000);
+				$('#logo-img-fourth img')
+				/* .css({'width':'','height':''}) */
+				.attr('src', 'img/animation/color4.png');
+			}
+			if ($(this).scrollTop() < 100) {
+				$('#logo, #topbar, .cart-label').fadeIn(4000);
+				$('#logo-img-fourth img')
+				/*  .css({'width':'','height':''})     */
+				.attr('src', 'img/animation/4.png');
+			}
+		});
+	});
+	$(function() {
+		$(window).scroll(function() {
+			if ($(this).scrollTop() > 450) {
+				$('#topbar, .cart-label').fadeOut(5000);
+				$('#logo-img-fifth img')
+				/* .css({'width':'','height':''}) */
+				.attr('src', 'img/animation/color5.png');
+			}
+			if ($(this).scrollTop() < 100) {
+				$('#logo, #topbar, .cart-label').fadeIn(5000);
+				$('#logo-img-fifth img')
+				/*  .css({'width':'','height':''})     */
+				.attr('src', 'img/animation/5.png');
+			}
+		});
+	});
+	$(function() {
+		$(window).scroll(function() {
+			if ($(this).scrollTop() > 450) {
+				$('#topbar1, .cart-label1').fadeOut(6000);
+				$('#logo-img-sixth img')
+				/* .css({'width':'','height':''}) */
+				.attr('src', 'img/animation/color6.png');
+			}
+			if ($(this).scrollTop() < 100) {
+				$('#logo1, #topbar1, .cart-label1').fadeIn(6000);
+				$('#logo-img-sixth img')
+				/*  .css({'width':'','height':''})     */
+				.attr('src', 'img/animation/6.png');
+			}
+		});
+	});
+</script>
+</head>
+
+<body>
+	<div class="wrapper" ng-controller="HomeController as homeController">
+		<!--=== Header ===-->
+
+
+
+
+		<div style="color: #fff"
+			class="promo-bg-pattern-v1-light promo-bg-fixed content-xlg parallaxBg height-500">
+			
+		  <div class="container text-center " data-start="opacity: 1;"
+				data-320="opacity: 0;">
+					<h2
+					class="promo-text-v2 color-darker animated fadeInUp wow margin-bottom-20"
+					data-wow-duration="1.5s" data-wow-delay="1s"><span style="color:#86b300">Welcome</span></h2>
+				
+			
+			</div>
+			
+		</div>
+
+	
+		
+		
+	</div>
+
+	<!--/End Wrapepr-->
+
+
+	<!-- JS Customization -->
+	<script type="text/javascript" src="assets/js/custom.js"></script>
+	<!-- JS Page Level -->
+	<script type="text/javascript" src="assets/js/app.js"></script>
+	<script type="text/javascript"
+		src="assets/js/plugins/style-switcher.js"></script>
+	<script type="text/javascript"
+		src="assets/plugins/wow-animations/js/wow.min.js"></script>
+		<script src="js/js-tab.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+			App.init();
+			StyleSwitcher.initStyleSwitcher();
+			new WOW().init();
+		});
+	</script>
+	<!--[if lt IE 9]>
+    <script src="assets/plugins/respond.js"></script>
+    <script src="assets/plugins/html5shiv.js"></script>
+    <script src="assets/plugins/placeholder-IE-fixes.js"></script>
+  <![endif]-->
+</body>
+</html>

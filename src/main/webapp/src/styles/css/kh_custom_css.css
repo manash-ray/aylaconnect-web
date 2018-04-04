@@ -1,0 +1,357 @@
+.navbar-collapse .navbar-nav {
+	margin: 0px;
+}
+
+.whiteBG {
+	background-color: #ffffff;
+}
+
+#startpage .navbar-default {
+	border-color: #ffffff;
+	background-color: #ffffff;
+	padding-left: 10px;
+	padding-top: 5px;
+}
+
+.page-scroll {
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #ff8080;
+	position: relative;
+	display: block;
+	padding: 30 px 15px;
+}
+
+.col-md-3 {
+	padding-left: 0px;
+}
+
+.col-md-9 {
+	padding-right: 0px;
+	padding-left: 10px;
+}
+
+.container-fluid {
+	padding-right: 0px;
+	padding-left: 2px;
+}
+
+#home-container {
+	background-color: #ebf0fa;
+	width: 100%;
+}
+
+.left-section {
+	/* padding : 0 0px; */
+	/* overflow-y:scroll; 
+	overflow-x:scroll;  */
+	
+}
+
+#startpage .cover-section {
+	position: relative;
+	/* background-image: url("./img/KH.jpg");
+	min-height: 530px;
+	width: auto; */
+	/* padding-left: 0;
+	padding-top: 0;
+    min-width: 100%; */
+	/* background-position: center; */
+	/* -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;  */
+}
+
+.right-section {
+	background-color: #ebf0fa
+}
+
+#startpage .cover-section {
+	background-image: url("../img/01.png");
+	background-size: cover;
+	background-color: #70cad2;
+	min-height: 530px;
+	width: 100%;
+}
+
+@media ( min-width : 800px) {
+	.right-section {
+		position: fixed;
+	}
+	#startpage .navbar-default {
+		padding-left: 80px;
+	}
+}
+
+#startpage .signup-content {
+	padding: 0px;
+}
+
+#signup,#login {
+	display: block;
+	padding: 0 0px;
+	width: 100%;
+	height: auto;
+	margin: auto;
+}
+
+#signup .inp {
+	width: 100%;
+}
+
+#startpage .login-bottom {
+	padding: 0 0 0 0px;
+	margin-top: 1px;
+}
+
+.spacer-10p {
+	height: 10px;
+}
+
+#startpage .inputicon {
+	width: 22px;
+	float: left;
+	padding-left: 5px;
+}
+
+#startpage .inputbox {
+	width: 250px;
+	float: left;
+	padding-left: 5px;
+}
+
+#startpage .login-btn {
+	background: #50d689;
+	border-radius: 20px;
+	width: 120px;
+	font-size: 10px;
+	padding: 0px;
+	border: none;
+	height: 25px;
+	padding-top: 0px;
+}
+
+#signup-header {
+	color: #50d689;
+}
+
+.signup-radio {
+	font-size: 10px;
+	color: #6f7d95;
+}
+
+.forg {
+	font-size: 9px;
+}
+
+#startpage .signup-btn {
+	background: #50d689;
+	border-radius: 20px;
+	width: 120px;
+	font-size: 10px;
+	padding: 0px;
+	border: none;
+	height: 25px;
+	padding-top: 0px;
+}
+
+.container-box {
+	padding-bottom: 0px;
+}
+
+.disclosure {
+	color: #6f7d95;
+	font-size: 12px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+#signup input[type=radio] {
+	margin: 0 0 0 0px;
+}
+
+.footer-link {
+	color: #ffffff;
+}
+
+.footer-link:hover {
+	color: #00cc44;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.login-tab-header {
+	font-size: 15px;
+}
+
+.intro {
+	display: table;
+	width: 100%;
+	height: 100%;
+	padding: 80px 0;
+	text-align: center;
+	color: white;
+	background: url(../img/khbg.png) no-repeat bottom center fixed;
+	background-color: #20cad5;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: contain;
+	-o-background-size: cover;
+}
+
+.intro .intro-body {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.intro .intro-body .brand-heading {
+	font-size: 40px;
+	text-transform: uppercase;
+}
+
+.intro .intro-body .intro-text {
+	font-size: 18px;
+	color: #fff;
+	font-size: 150%;
+}
+
+.intro  h1,.intro h2,.intro h3,.intro h4,.intro h5,.intro h6 {
+	margin: 0 0 35px;
+	text-transform: uppercase;
+	font-family: "Open Sans";
+	font-weight: 800;
+	letter-spacing: 1px;
+}
+
+.navbar-form .input-group {
+	display: -webkit-box;
+}
+
+.aboutKhSection {
+	padding: 100px 100px;
+}
+
+.aboutKhSectionInner .aboutKhSectionSign {
+	padding: 10px 0px;
+	font-family: "Open Sans";
+	font-size: 150%;
+	font-weight: bold;
+	text-align: center;
+}
+
+.aboutKhSectionText {
+	font-family: "Open Sans";
+	text-transform: uppercase;
+	text-align: center;
+	padding: 20px 0px 10px 0px;
+	font-weight: bold;
+	font-size: 90%;
+}
+
+.aboutKhSectionImage {
+	width: 70%;
+}
+
+.aboutKhSection {
+	padding-left: 50px;
+}
+
+.parallaxEffect {
+	position: relative;
+}
+
+.aboutKhSectionInner {
+	padding: 0px;
+}
+
+.parallaxEffect {
+	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+	opacity: 1;
+}
+
+body {
+	overflow-x: hidden;
+	position: relative;
+}
+
+.wrapper {
+	padding: 100px;
+}
+
+.wrapper {
+	padding: 50px;
+}
+
+.bounce {
+	height: 100%;
+	width: 100%;
+	position: relative;
+	-webkit-animation: mymove 5s;
+	/
+	Safari
+	4.0
+	-
+	8.0
+	/
+	animation
+	:
+	mymove
+	6s;
+}
+
+/
+Safari 4.0 - 8.0 /
+ @-webkit-keyframes mymove {
+	from {right: -1000px;
+}
+
+to {
+	right: 0px;
+}
+
+}
+@
+keyframes mymove {
+	from {right: -1000px;
+}
+
+to {
+	right: 0px;
+}
+
+}
+.homePageIconImage {
+	width: 180px;
+	height: 180px;
+	padding: 0px;
+	vertical-align: middle;
+}
+
+.homepageSectionIcon {
+	padding: 50px;
+}
+
+.homepageSectionIcon p {
+	padding: 10px;
+	text-align: justify;
+}
+
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+	background-color:#20cad5;
+    text-decoration: none;
+    color: initial;
+    color:#fff;
+    font-weight:bold;
+}
+
+.center-block{
+	 float: left;
+    position: relative;
+    left: 50%;
+}

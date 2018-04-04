@@ -1,0 +1,24 @@
+/* common messages */
+var common_save_msg="Updated successfully.";
+var common_error_msg="Required Fields  cannot Be Empty.";
+var common_end_date_error= "End date cannot be before start date.";
+var exp_success_msg="Experience has been successfully updated.";
+var edu_success_msg="Education has been successfully updated.";
+var certification_success_msg="Certification has been successfully updated.";
+var about_success_msg="About has been successfully updated.";
+var message_success_msg="Message sent successfully.";
+var specialities_success_msg="Specialities has been added successfully.";
+var team_success_msg="Team has been added successfully.";
+var invalid_date_error="is not a valid date";
+var invalid_mobile_error="Enter valid mobile number";
+var no_space_in_mobile="No space is allowed.";
+var activity_error="This post appears to be blank. Please write something or photo to post.";
+var location_error="You can not add more than 5 locations";
+var specialization_remove_success_msg="Specialization removed successfully.";
+var team_remove_success_msg="Team removed successfully.";
+var remove_button_msg="Are you sure you want to remove?";
+var generic_remove_message="Removed Succesfully";
+var photo_type_error="Please choose a valid photo";
+var special_character_not_allowed="Special character Except Comma are not allowed";
+var password_matching_error="Password and confirm Password must be same";
+var verify_captcha="Please Verify the Captcha";

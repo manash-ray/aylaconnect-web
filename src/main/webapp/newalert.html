@@ -1,0 +1,255 @@
+<html lang="en" ng-adm="app">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 2 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<meta http-equiv="Page-Enter"
+	content="revealTrans(Duration=10.0,Transition=1)">
+<!-- Note there is no responsive meta tag here -->
+
+<link rel="icon" href="img/KH_Symbol.png">
+
+<title>Alerts</title>
+
+<style>
+.wc-form-control-text{
+  display: block;
+    width: 25%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #d9e5ee;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    max-width:25%;
+}
+
+
+
+</style>
+
+</head>
+
+<body class="">
+
+	<div class="">
+		<div ng-controller="AlertsController as alertsController">
+
+			<div class="row" >
+				<div class="col-md-12">
+					<div class="ad-card">
+						<div class="cd-wrap-imp">
+						<h3>Alert Settings <button type="button" class="btn btn-follow pull-right mgleft10 mgtop2"																	
+																	><a href="alertsettings"><span style="color:white">Alerts List</span></a></button></h3>
+																	
+								<div class="row">											
+								<div class="spacer5"></div>									
+							<h4>Create New Alert</h4>
+							
+								
+								<div class="save-content">
+									<form class="" name="form" ng-submit="alertsController.addAlert()"  >
+									
+									<div
+										ng-class="{ 'alert': flash,  'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }"
+										ng-if="flash" ng-bind="flash.message"></div>
+										
+									<div class="container-box" style="padding-left: 0px">
+
+											<div class="row">
+											<div class="form-group">
+												<div class="col-xs-4">
+													<input type="checkbox" ng-model="alertsController.newalert.is_enabled"> Enable Alert
+												
+												</div>
+												<div class="col-xs-2">
+												<label class="form-control-label">Assign To Role</label>
+												</div>
+												<div class="col-xs-4">
+												<select name="multipleSelect" ng-model="multipleRoles" multiple  ng-required="true" >
+																<option value="OEM:Global IOT:Acme Telecom">OEM:Global IOT:Acme Telecom</option>
+     															<option value="OEM:Global IOT:Acme Retail">OEM:Global IOT:Acme Retail</option>
+      																		
+   												 </select>
+        
+        										
+												</div>									
+											</div>
+											</div>
+											
+											<div class="row">											
+											<div class="spacer5"></div>
+											<p class="bottom-line"></p>
+											</div>
+											
+											<div class="row">
+											<div class="form-group">
+												<div class="col-xs-1">
+													<label class="form-control-label">For</label>
+																									
+												</div>
+												<div class="col-xs-2">
+														<select  ng-required="true" 
+															 data-ng-options="x for x in models" data-ng-model="alertsController.newalert.model">
+															<option value="">Select Device Model </option>
+														</select>
+														</div>
+														
+											<div class="col-xs-1">
+													<label class="form-control-label">If</label>
+																									
+												</div>
+												<div class="col-xs-2">
+														<select  ng-required="true" 
+															 data-ng-options="x for x in properties" data-ng-model="alertsController.newalert.property">
+															 <option value="">Select Device Property </option>
+															
+														</select>
+														</div>
+														
+												<div class="col-xs-1">
+														
+														</div>
+														
+												<div class="col-xs-1">
+														<select  ng-required="true" 
+															 data-ng-options="x for x in symbols" data-ng-model="alertsController.newalert.symbol">
+															
+														</select>
+														</div>
+														
+												<div class="col-xs-2">
+														<input  type="text"  placeholder="Data Point" data-ng-model="alertsController.newalert.data">
+														
+														</div>
+																					
+											</div>
+											</div>
+											
+											<div class="row">											
+											<div class="spacer5"></div>
+											<p class="bottom-line"></p>
+											</div>
+											
+											<div class="row">
+											<div class="form-group">
+												<div class="col-xs-1">								
+																									
+												</div>
+												<div class="col-xs-2">
+														
+														</div>
+														
+											<div class="col-xs-1">
+													<label class="form-control-label">Then</label>
+																									
+												</div>
+												<div class="col-xs-2">
+														<select  ng-required="true" ng-change="alertsController.loadstate()"
+															 data-ng-options="x for x in types" data-ng-model="alertsController.newalert.type">
+															<option value="">Select Alert Type </option>
+														</select>
+														</div>
+														
+												<div class="col-xs-1">
+														<input ng-required="true"  size="8" type="text" readonly data-ng-model="alertsController.newalert.state">
+														
+												</div>
+												<div class="col-xs-1">	</div>
+												<div class="col-xs-4">
+														<input ng-required="true"  size="30" type="text" placeholder="Alert Name" data-ng-model="alertsController.newalert.name">
+														
+														</div>
+																					
+											</div>
+											</div>
+											<div class="row"><div class="spacer5"></div> </div>
+											<div class="row">
+											<div class="form-group">
+												<div class="col-xs-1">								
+																									
+												</div>
+												<div class="col-xs-2">
+														
+														</div>
+														
+											<div class="col-xs-1">
+													
+																									
+												</div>
+												<div class="col-xs-2">
+													
+														</div>
+														
+												
+														
+												<div class="col-xs-4">
+														<input  type="text"  size="30" placeholder="Link to Knowledge Article" data-ng-model="alertsController.newalert.knowledgeUrl">
+														
+														</div>
+																					
+											</div>
+											</div>
+											
+											<div class="row">											
+											<div class="spacer5"></div>
+											<p class="bottom-line"></p>
+											</div>
+										
+											<div class="text-center">
+											<button type="submit"  
+												class="btn btn-follow btn-follow-nomargin"
+												data-position-join="right">
+												Create
+											</button>
+											
+											
+										</div>
+													
+													
+													
+												
+                  								</div>	
+                  								
+                  								</form>
+                  						
+											</div>
+											
+											
+																									
+											
+											
+											
+										
+
+										
+									</div>
+								</div>
+							
+						</div>
+					</div>
+				</div>
+				
+
+
+
+			</div>
+		</div>
+	</div>
+
+
+	
+	<script src="js/bootbox.js"></script>
+	
+
+</body>
+</html>

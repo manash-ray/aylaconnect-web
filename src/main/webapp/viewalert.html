@@ -1,0 +1,340 @@
+<html lang="en" ng-adm="app">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 2 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<meta http-equiv="Page-Enter"
+	content="revealTrans(Duration=10.0,Transition=1)">
+<!-- Note there is no responsive meta tag here -->
+
+<title>Alerts</title>
+
+<style>
+.wc-form-control-text{
+  display: block;
+    width: 25%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #d9e5ee;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    max-width:25%;
+}
+
+.tf{
+font-size: 12px;
+align : left;
+text-align: left;
+}
+
+
+</style>
+
+</head>
+
+<body class="">
+
+	
+	<div ng-controller="AlertsController as alertsController">
+
+			<div class="col-md-12">
+			<div class="ad-card">
+			<div class="container-box" style="padding-left: 0px">
+			<div class="row">
+				<div class="col-xs-6">
+					<div class="ad-card" ng-init="StartTimer()"> 
+					<div class="row">
+						<div class="col-xs-4">
+							<label class="form-control-label">Device</label>
+						</div>
+						<div class="col-xs-5"  >
+							<span >{{alertsController.vi.deviceId}}</span>
+																	
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-4">
+							<label class="form-control-label tf">Model</label>
+						</div>
+						<div class="col-xs-5 tf"  >
+							<span >{{alertsController.vi.model}}</span>
+																	
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-4">
+							<label class="form-control-label tf">Status</label>
+						</div>
+						
+						<div class="col-xs-4 tf"  ng-if="alertsController.vi.status == 'R'">
+						<span style="color:red">{{alertsController.vi.ruleName}}</span>
+						</div>
+						<div class="col-xs-5 tf"  ng-if="alertsController.vi.status == 'G'">
+						<span style="color:blue">{{alertsController.vi.ruleName}}</span>																	
+						</div>
+						<div class="col-xs-5 tf"  ng-if="alertsController.vi.status == 'Y'">
+						<span style="color:#CCCC00">{{alertsController.vi.ruleName}}</span>																	
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-4">
+							<label class="form-control-label tf">ALert Timestamp</label>
+						</div>
+						<div class="col-xs-5 tf"  >
+						{{alertsController.vi.alertDatef|date:'HH.mm.ss dd/MM/yyyy '}} 
+																	
+						</div>
+					</div>
+
+					<div class="row"><p class="bottom-line"></p></div>
+					<div class="row">
+						<div class="col-xs-6">
+							<label class="form-control-label">Last Recorded Data points</label>
+						</div>
+						
+					</div>
+					
+					<div ng-repeat="(key, value) in alertsController.vi.alertData">
+					<div class="row" ng-if="key != alertsController.vi.alertData['ruleattrib']  && key != 'ruleattrib' ">
+						<div class="col-xs-4">
+							<label class="form-control-label tf">{{key}}</label>
+						</div>
+						<div class="col-xs-5">
+							{{value}}																	
+						</div>
+												
+					</div>
+					<div class="row" ng-if="key == alertsController.vi.alertData['ruleattrib']  ">
+						<div class="col-xs-4">
+							<label class="form-control-label tf">{{key}}</label>
+						</div>
+						<div class="col-xs-5"  ng-if="alertsController.vi.status == 'R'">
+							<span style="color:red">{{value}}</span>
+																	
+						</div>
+						<div class="col-xs-5"  ng-if="alertsController.vi.status == 'G'">
+							<span style="color:blue">{{value}}</span>
+																	
+						</div>
+						<div class="col-xs-5"  ng-if="alertsController.vi.status == 'Y'">
+							<span style="color:#CCCC00">{{value}}</span>
+																	
+						</div>
+						
+												
+					</div>
+					</div>
+					
+					<div class="row">											
+					<div class="spacer5"></div>
+					<p class="bottom-line"></p>
+					</div>
+					<div class="row">
+						<div class="col-xs-6">
+							<label class="form-control-label">Recent Alerts</label>
+						</div>
+						
+					</div>
+					<div ng-repeat="x in alertsController.vi.recetAlerts">
+					<div class="row">
+						<div class="col-xs-5 tf"  >
+						{{x.alertDatef|date:'MMM dd yyyy HH.mm.ss'}} 																	
+						</div>
+						<div class="col-xs-4 tf"  ng-if="x.status == 'R'">
+						<span style="color:red">{{x.rule.name}}</span>
+						</div>
+						<div class="col-xs-5 tf"  ng-if="x.status == 'G'">
+						<span style="color:blue">{{x.rule.name}}</span>																	
+						</div>	
+						<div class="col-xs-5 tf"  ng-if="x.status == 'Y'">
+						<span style="color:#CCCC00">{{x.rule.name}}</span>																	
+						</div>				
+					
+					</div>
+					</div>
+					
+					
+											
+											
+				</div>	
+				</div>
+				<div class="col-xs-6">
+					<div class="ad-card"> 
+					
+					
+					<div class="row">
+						<div class="col-xs-6">
+							<label class="form-control-label">Customer Details</label>
+						</div>
+						
+					</div>
+					
+					<div class="row">
+						<div class="col-xs-2 tf">
+							<label class="form-control-label">Name</label>
+						</div>
+						<div class="col-xs-4 tf"  >
+							<span >{{alertsController.vi.customer.name}}</span>
+																	
+						</div>
+						<div class="col-xs-3 tf">
+							<label class="form-control-label">Customer ID</label>
+						</div>
+						<div class="col-xs-3 tf"  >
+							<span >{{alertsController.vi.customer.id}}</span>
+																	
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-2 tf">
+							<label class="form-control-label">Email</label>
+						</div>
+						<div class="col-xs-4 tf"  >
+							<span >{{alertsController.vi.customer.email}}</span>
+																	
+						</div>
+						<div class="col-xs-3 tf">
+							<label class="form-control-label">Phone</label>
+						</div>
+						<div class="col-xs-3 tf"  >
+							<span >{{alertsController.vi.customer.phone}}</span>
+																	
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-xs-3 tf">
+							<label class="form-control-label">Address</label>
+						</div>
+						<div class="col-xs-8 tf"  >
+							<span >{{alertsController.vi.customer.address}}</span>
+																	
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-3 tf">
+							<label class="form-control-label"><B>ISP Status</B></label>
+						</div>
+						<div class="col-xs-6 tf"  >
+							<span >{{alertsController.vi.customer.ispStatus}}</span>
+																	
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-3 tf">
+							<label class="form-control-label">ISP</label>
+						</div>
+						<div class="col-xs-6 tf"  >
+							<span >{{alertsController.vi.customer.ispName}}</span>
+																	
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-xs-3 tf">
+							<label class="form-control-label">Service Type</label>
+						</div>
+						<div class="col-xs-6 tf"  >
+							<span >{{alertsController.vi.customer.serviceType}}</span>
+																	
+						</div>
+					</div>	
+					
+					<div>
+					<ng-map   id="map2" center="{{alertsController.vi.customer.latitude}}, {{alertsController.vi.customer.longitude}}" zoom="8">
+																  
+						<marker  position="[{{alertsController.vi.customer.latitude}}, {{alertsController.vi.customer.longitude}}]" draggable=true> 
+																												      
+						</marker></ng-map>
+					</div>
+																
+																			
+					
+					<div class="row">											
+					<div class="spacer5"></div>
+					<p class="bottom-line"></p>
+					</div>
+					
+					<div class="row">
+						<div class="col-xs-6">
+							<label class="form-control-label">Past Support Tickets</label>
+						</div>
+						
+					</div>
+					<div class="row">
+						<div class="col-xs-4">
+						Issue
+						</div>
+						<div class="col-xs-3"  >
+						Date																	
+						</div>
+						<div class="col-xs-3">
+						Status
+						</div>
+						
+					</div>
+					<div ng-repeat="x in alertsController.vi.pastTickets">
+					<div class="row">
+						<div class="col-xs-4 tf">
+						{{x.issue}}
+						</div>
+						<div class="col-xs-3 tf"  >
+						{{x.date|date:'MMM dd yyyy'}} 																	
+						</div>
+						<div class="col-xs-3 tf">
+						{{x.status}}
+						</div>
+						
+					</div>
+					</div>
+					
+					<div class="row">											
+					<div class="spacer5"></div>
+					<p class="bottom-line"></p>
+					</div>
+					<div class="row">
+						<div class="col-xs-6">
+							<label class="form-control-label">Recent Connection Events</label>
+						</div>
+						
+					</div>
+					<div ng-repeat="x in alertsController.vi.recevtEvents">
+					<div class="row">
+						<div class="col-xs-6 tf"  >
+						{{x.date|date:'MMM dd yyyy HH.mm.ss'}} 																	
+						</div>
+						<div class="col-xs-4 tf">
+						{{x.location}}
+						</div>
+						
+					</div>
+					</div>
+					
+					
+					</div>
+					</div>
+				</div>
+			</div>			
+				
+			</div>
+			</div>
+				
+	</div>
+
+
+
+	
+	<script src="js/bootbox.js"></script>
+	
+
+</body>
+</html>

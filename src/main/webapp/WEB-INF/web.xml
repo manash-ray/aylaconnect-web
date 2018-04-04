@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_2_5.xsd http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>Spring Web MVC Application</display-name>
+  <error-page>
+    <exception-type>java.lang.Throwable</exception-type>
+    <location>/WEB-INF/jsp/errorpage.jsp</location>
+  </error-page>
+  <welcome-file-list>
+    <welcome-file>/index.jsp</welcome-file>
+  </welcome-file-list>
+  <login-config/>
+  
+   <filter>
+      <filter-name>prerender</filter-name>
+      <filter-class>com.github.greengerong.PreRenderSEOFilter</filter-class>
+      <init-param>
+          <param-name>prerenderToken</param-name>
+          <param-value>pKeZYpcTIMUoEsaHiTkl</param-value>
+      </init-param>
+        
+  </filter>
+  <filter-mapping>
+      <filter-name>prerender</filter-name>
+      <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  
+  <filter>
+    <filter-name>OncePerRequestFilter</filter-name>
+    <filter-class>com.ayla.filter.Html5ModeUrlSupportFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>OncePerRequestFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+</web-app>

@@ -1,0 +1,509 @@
+<html lang="en"  ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 2 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Page-Enter" content="revealTrans(Duration=10.0,Transition=1)">
+    <!-- Note there is no responsive meta tag here -->
+
+    <link rel="icon" href="img/KH_Symbol.png">
+
+    <title>Login | Praveshika App</title>
+
+    <!-- Bootstrap core CSS -->
+ <!--    <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet prefetch" href="css/font-awesome.min.css">
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+    <link href="css/style-tab.css" rel="stylesheet">
+  
+ 
+   
+    
+  </head>
+
+  <body id="startpage">
+    <div class="container header">
+        <div class="text-center">
+            <a href=""><img src="img/logo.png" alt="LinkedIn" class="img-responsive logo text-center"></a>
+        </div>
+    </div>
+    <div class="container contentx">
+        <div class="signup-texture">
+            <div class="signup-container">
+                <div class="signup-form-container">
+        
+                                      <ul class="tab-group" >
+                            <li class="tab  signin-tab"><a href="#signup">Sign Up</a></li>
+                            <li class="tab  active join-tab"><a href="#login">Log In</a></li>
+                        </ul>
+                        <div class="signup-form-wrapper">
+                            <div class="tab-content">
+                                <div id="signup" ng-controller="UserController as userController" style="display:none">
+		                                <div  ng-hide="userController.isRegistrationAllowed">
+		                                     <p>Your not allowed to register with Praveshika, contact Administrator.</p>
+		                                
+		                                </div>
+                                <div ng-show="userController.isRegistrationAllowed">
+                                
+	                                    <div class="tabd-content">
+		                                        <div class="tab-paned active" id="firsttab">
+		                                           
+		                                              <form name="next" novalidate role="form" ng-submit="next.$valid && userController.openSecondTab()"> 
+		                                                <div class="spacer20"></div>
+		                                                <h2 class="text-center">Sign up to experience the most efficient way of communication !</h2>
+		                                                <div class="alerts-box"></div>
+		                                                <div class="spacer"></div>
+		                                           
+		                                              <div ng-class="{'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+		                                                <div class="signup-select-cont">
+		                                             
+		                                                
+		                                                  
+		                                                     
+		                                                       <span ng-repeat="persona in userController.personaMasters track by $index">
+		                                                     <div class="form-group"   >
+		                                                    
+		                                                  
+                                                                                  
+		                                                        <label class="radio signuplabel" style="margin-left:20px; color:#6f7d95">
+		                                                        <input type="radio" name="optradio" ng-required="true" id="induvidual" ng-model="userController.user.selectedPersonaId"  ng-click="userController.onPersonaChange(persona,-1)" ng-value="persona.id">{{persona.name}}</label>
+		                                                       <div    class="row" ng-repeat="personas in userController.personaMastersMap track by $index">
+                                                                         
+                                                                         <div ng-show="{{userController.user.selectedPersonaId== persona.id}}" >        
+													
+																	
+																	<div >
+																	 <span > 	
+																	 <div class="form-group"  ng-class="{ 'has-error':  next.personaName.$error.required}"  >
+																		<select  name="personaName" id="s-persona" class="s-persona"  ng-required="true" ng-model="userController.personaValue[$index]" ng-options="personaMaster as personaMaster.name for personaMaster in personas" >
+																		 <option value="">-- Select --</option>
+																		</select><br><br>
+						
+																		<span ng-show="(next.personaName.$dirty && next.personaName.$error.required)|| (next.$submitted && next.personaName.$error.required)" class="help-block" >{{persona.name}} is required</span>
+														  </div>
+																	  </span> 
+																	
+																	</div> 
+																	</div> 
+																	    
+															</div> 
+															    
+		                                                    </div> 
+		                                                    <div class="spacer10"></div>
+		                                                    
+		                                                    
+		                                                    </span>
+		                                                    
+					                                     <!--      <div class="inp">
+			                                                    <div class="inputicon">
+			                                                        <img src="img/icon-lock.png"/>
+			                                                    </div>
+			                                                    <div class="inputbox" 
+			                                                    ng-class="{ 'has-error':  next.username.$error.required || next.username.$error.maxlength }">
+			                                                        <input ng-model="userController.user.userName" class="signup-inputs" type="text" placeholder="USERNAME"  ng-pattern="/^\s*\w*\s*$/" ng-trim="false" autocomplete="off" ng-required="true" id="username" name="username" ng-maxlength="15">
+			                                                        <span class="bar"></span>
+			                                                        <span ng-show="next.username.$dirty && next.username.$error.required" class="help-block">UserName is required</span>
+			                                                        <span class="help-block" ng-show="next.username.$error.pattern">Single word only!</span>
+			                                                         <span ng-show="( next.username.$dirty &&  next.username.$error.required)|| (next.$submitted &&  next.username.$error.required)" class="help-block" >UserName is required</span>
+                                                                          <span ng-show="( next.username.$dirty &&  next.username.$error.maxlength)|| (next.$submitted &&  next.username.$error.maxlength)" class="help-block">Max 15 Characters Allowed</span>
+                                                                        
+			                                                    </div>
+			                                                </div> -->
+                                                
+		                                                </div>
+		                                           
+		                                                
+		                                                <div class="form-group text-center">
+		                                                    <button class="btn btn-follow" >Next</button>
+		                                                </div>
+		                                                 </form>
+		                                            
+		                                            
+		                                        </div>
+		                                        
+		                                        	     <div class="tab-paned" id="secondtab">
+		                                        	     <form class="" name="form" ng-submit="form.$valid && userController.Save()"  method="POST"  role="form" novalidate>
+				                                                <div class="signup-content">
+				                                                    <div class="container-box" style="padding-left:20px;  min-height:320px;">
+				                                                        <h3 class="text-center">Sign up using your email</h3>
+				                                                         
+				                                                        
+				                                                    <div uib-alert  ng-repeat="passwordError in alerts.passwordError" ng-class="'alert-' + (passwordError.type || 'warning')" >{{passwordError.msg}}</div>
+                                          
+                                             
+                                                 
+                                                <div class="inp">
+                                                    <div class="inputicon">
+                                                        <img src="img/icon-user.png"/>
+                                                    </div>
+                                                    <div class="inputbox" ng-class="{ 'has-error':  form.firstName.$error.required }" >
+                                                        <input ng-model="userController.user.firstName" class="signup-inputs" name="firstName" id="first-name" type="text" placeholder="{{userController.firstName}}" ng-required="true" value="" autofocus="&quot;autofocus&quot;/">
+                                                        <span class="bar"></span>
+                                                         <span ng-show="(form.firstName.$dirty && form.firstName.$error.required)|| (form.$submitted && form.firstName.$error.required)" class="help-block" >{{userController.firstName}} is required</span>
+                                                    </div>
+                                                </div>
+                                                 <div class="inp" ng-if="userController.showLastName" >
+                                                    <div class="inputicon">
+                                                        <img src="img/icon-user.png"/>
+                                                    </div>
+                                                    <div class="inputbox" >
+                                                        <input   ng-model="userController.user.lastName" class="signup-inputs" name="lastName" id="last-name" type="text" placeholder="LAST NAME"  value="">
+                                                        <span class="bar"></span>
+                                                        </div>
+                                                </div> 
+                                                <div class="inp">
+                                                    <div class="inputicon">
+                                                        <img src="img/icon-email.png"/>
+                                                    </div>
+                                                    
+                                                    
+                                                    
+                                                    <div ng-show="userController.disabled" class="inputbox" ng-class="{ 'has-error':  form.email.$error.required }">
+                                                        <input ng-model="userController.user.email" class="signup-inputs" type="email" placeholder="EMAIL ADDRESS" disabled="disabled" ng-required="true" id="join-email" name="email" value="">
+                                                        <span class="bar"></span>
+                                                         <span ng-show="(form.email.$dirty && form.email.$error.required)|| (form.$submitted && form.email.$error.required)" class="help-block" >Email is required</span>
+                                                    </div>
+                                                    
+                                                    <div  ng-hide="userController.disabled" class="inputbox" ng-class="{ 'has-error':  form.email.$error.required }" >
+                                                        <input ng-model="userController.user.email" class="signup-inputs" type="email" placeholder="EMAIL ADDRESS"  required="required" id="join-email" name="email" value="">
+                                                        <span class="bar"></span>
+                                                        <span ng-show="(form.email.$dirty && form.email.$error.required)|| (form.$submitted && form.email.$error.required)" class="help-block" >Email is required</span>
+                                                    </div>
+                                                  
+                                                    
+                                                </div>
+                                                 <div class="inp">
+                                                    <div class="inputicon">
+                                                        <img src="img/icon-email.png"/>
+                                                    </div>
+                                                    
+                                                    
+                                                    
+                                                    <div  class="inputbox" ng-class="{ 'has-error':  form.mobile.$error.required }">
+                                                        <input ng-model="userController.user.mobile" class="signup-inputs" type="tel" placeholder="MOBILE"  ng-required="true" id="join-email" name="mobile" value="">
+                                                        <span class="bar"></span>
+                                                         <span ng-show="(form.mobile.$dirty && form.mobile.$error.required)|| (form.$submitted && form.mobile.$error.required)" class="help-block" >Mobile is required</span>
+                                                    </div>
+                                                    
+                                              
+                                                  
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="inp">
+                                                    <div class="inputicon">
+                                                        <img src="img/icon-lock.png"/>
+                                                    </div>
+                                                    <div class="inputbox" ng-class="{ 'has-error':  form.password.$error.required }">
+                                                        <input ng-model="userController.user.password" class="signup-inputs" type="password" placeholder="PASSWORD (should include minimum 8 characters )" autocomplete="off" ng-required="true" id="join-password" name="password">
+                                                        <span class="bar"></span>
+                                                        <span ng-show="(form.password.$dirty && form.password.$error.required)|| (form.$submitted && form.password.$error.required)" class="help-block" >Password is required</span>
+                                                    </div>
+                                                    
+                                                    
+                                                </div>
+                                                 <div class="inp">
+                                                    <div class="inputicon">
+                                                        <img src="img/icon-lock.png"/>
+                                                    </div>
+                                                
+                                                
+                                                <div class="inputbox" ng-class="{ 'has-error':  form.confPassword.$error.required }">
+                                                                <input class="signup-inputs" type="password" placeholder="CONFIRM PASSWORD" autocomplete="off" ng-required="true" id="confirm-password" name="confPassword" ng-model="userController.user.confirmPassword">
+                                                                <span class="bar"></span>
+                                                                  <span ng-show="(form.confPassword.$dirty && form.confPassword.$error.required)|| (form.$submitted && form.confPassword.$error.required)" class="help-block" >Confirm password is required</span>
+                                                            </div>
+                                      </div>
+ 								  <div class="g-recaptcha" data-sitekey="{{userController.datasiteKey}}"></div>
+ 								  
+ 								  
+                                            
+                                         
+                                            <p class="disclosure">By clicking Join now, you agree to Praveshika's User Agreement, Privacy Policy, and Cookie Policy.</p>
+                                            <div class="join-btn text-center">
+                                                <button type="submit"  class="btn btn-success signup-btn" data-position-join="right"><span class="fill-v2">Join Now</span></button>
+                                            </div>
+                                            <p class="signin-link text-center">Already on Praveshika? <a data-target="#login" class="sign-in-link signin-q">Sign in</a></p>
+                                     
+                                 
+				                                                </div>
+				                                                </form>
+				                                                
+				                                                   </div>
+				                                        </div>
+				                           <div class="social-contn" style="display:none">
+                                        <div class="row" style="height:20px">
+                                            <div class="col-sm-12">
+                                                <div style="width: 100%; height: 12px; border-bottom: 1px solid #b9c3d0; text-align: center">
+                                                  <span style="font-size: 18px; background-color: #ebf1f5; padding: 0 10px; color:#b9c3d0;">
+                                                    Or
+                                                  </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                      <!--   <div class="spacer10"></div> -->
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                               <button type="submit"  name="submit" class="socialbutton" ng-click="userController.authenticate('facebook')"><img src="img/btn-fb-signup.png" class="img-responsive" /></button>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <button type="submit"  name="submit" class="socialbutton" ng-click="userController.authenticate('google')"><img src="img/btn_gplus-signup.png" class="img-responsive" /></button>
+                                            </div>
+                                        </div>
+                                        <div class="spacer10"></div>
+                                    </div>
+				                                     
+	                                            
+	                                        </div>
+                                
+
+                                 
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div id="login"   ng-controller="LoginController as loginController" style="display:block">    <!-- ng-show="globals.currentUser.id==''" -->
+                                    <h2 class="text-center">Welcome Back !</h2>
+                                    <div class="alerts-box"></div>
+                                    <form name="form" ng-submit="loginController.loginOauth()" role="form">
+                                     <!-- <form class="" action="profile.html" method="POST" novalidate=""> -->
+                                        <div class="signup-content">
+                                          <div ng-class="{'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+                                            <div class="container-box" style="padding-left:20px">
+                                            
+                                            
+                                               <div class="inp"  ng-show="!(showPasswordBox || showOtpBox || showOtpResetBox)"  >
+                                                    <div class="inputicon">
+                                                        <img src="img/icon-user.png"/>
+                                                    </div>
+                                                    <div class="input-group inputbox">
+														  <input  ng-model="emailOrMobile" class="signup-inputs" name="email" id="emailMobile" type="text" placeholder="EMAIL OR MOBILE"  value="" autofocus="&quot;autofocus&quot;/" >
+														  <span class="input-group-btn">
+														    <button class="btn btn-default" type="button" ng-click="status()">
+														        <i class="fa fa-caret-square-o-right"></i>
+														    </button>
+														  </span>
+														</div>
+														                                                    
+													<!-- 	                                                    
+                                                    <div class="inputbox" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }" >
+                                                        <input  ng-change="status()"  ng-model="emailOrMobile" class="signup-inputs" name="email" id="emailMobile" type="text" placeholder="EMAIL OR MOBILE"  value="" autofocus="&quot;autofocus&quot;/">
+                                                        <span class="bar"></span>
+                                                        <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Email or Mobile is required</span>
+                                                    </div> -->
+                                                </div>
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                                <div class="inp"  ng-show="showPasswordBox || showOtpBox || showOtpResetBox">
+                                                    <div class="inputicon">
+                                                        <img src="img/icon-user.png"/>
+                                                    </div>
+                                                    <div class="inputbox" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }" >
+                                                        <input   ng-model="emailOrMobile" class="signup-inputs" name="email" id="emailMobile" type="text" placeholder="EMAIL OR MOBILE"  value="" autofocus="&quot;autofocus&quot;/" ng-disabled="true">
+                                                        <span class="bar"></span>
+                                                        <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Email or Mobile is required</span>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="row" style="height:20px">
+                                        <div class="col-sm-12">
+                                            <div style="width: 100%; height: 12px; border-bottom: 1px solid #b9c3d0; text-align: center">
+                                              <span style="font-size: 18px; background-color: #ebf1f5; padding: 0 10px; color:#b9c3d0;">
+                                                Or
+                                              </span>
+                                            </div>
+                                        </div>
+                                    </div>  -->
+                                                
+                                                
+                                           <!-- <div class="inp">
+                                                    <div class="inputicon">
+                                                        <img src="img/icon-user.png"/>
+                                                    </div>
+                                                    <div class="inputbox" ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }" >
+                                                        <input    ng-change="status()" ng-model="loginController.user.mobile" class="signup-inputs" name="mobile" id="email" type="text" placeholder="Mobile"  value="" autofocus="&quot;autofocus&quot;/">
+                                                        <span class="bar"></span>
+                                                        <span ng-show="form.mobile.$dirty && form.mobile.$error.required" class="help-block">Mobile is required</span>
+                                                    </div>
+                                               </div> -->
+                                                
+                                                
+                                                <div class="inp"  ng-if="showPasswordBox">
+                                                    <div class="inputicon">
+                                                        <img src="img/icon-lock.png"/>
+                                                    </div>
+                                                    <div class="inputbox">
+                                                        <input  ng-model="loginController.user.password" class="signup-inputs" type="password" placeholder="PASSWORD" autocomplete="off" required="required" id="join-password" name="password">
+                                                        <span class="bar"></span>
+                                                          <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+                                                    </div>
+                                                   
+                                                </div>
+                                                	
+                                                     <div class="inp"   ng-if="showOtpBox || showOtpResetBox">
+                                                    <div class="inputicon">
+                                                        <img src="img/icon-lock.png"/>
+                                                    </div>
+                                                    <div class="inputbox">
+                                                        <input  ng-model="loginController.user.oneTimeKey" class="signup-inputs" type="text" placeholder="OTP" autocomplete="off" required="required" id="join-password" name="oneTimeKey">
+                                                        <span class="bar"></span>
+                                                          <span ng-show="form.oneTimeKey.$dirty && form.oneTimeKey.$error.required" class="help-block">OTP is required</span>
+                                                    </div>
+                                                  
+                                                </div>
+                                                
+						
+                                            </div>
+                                            <div class="login-bottom" ng-show="showPasswordBox">
+                                                <div class="join-btn text-center">
+                                                    <button id="login" type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-success signup-btn" data-position-join="right"><span class="fill-v2">Log In</span></button>
+                                                </div>
+                                                 
+                                                </div>
+                                                <div class="login-bottom" ng-show="showOtpResetBox">
+                                                <div class="join-btn text-center">
+                                                    <button id="otp" type="button" ng-click="confirmOTP()" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-success signup-btn" data-position-join="right"><span class="fill-v2">Reset Password</span></button>
+                                                </div>
+                                                 </div>
+                                                
+                                            <div class="login-bottom" ng-show="showOtpBox">
+                                                <div class="join-btn text-center">
+                                                    <button id="otp" type="button" ng-click="confirmOTP()" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-success signup-btn" data-position-join="right"><span class="fill-v2">Confirm OTP</span></button>
+                                                </div>
+                                                 </div>
+
+                                        </div>
+                                        <p class="pull-right forg"><a href="forgotPassword" class="forg">Forgot Password ?</a></p>
+                                        <p class="signin-link text-center">Not a member? <a data-target="#signup" class="sign-in-link join-q cursor-pointer" >Join Now</a></p>
+                                           
+                                    </form> 
+                                    
+                                    <!--  <button class="btn btn-block btn-facebook" ng-click="loginController.authenticate('facebook')">
+								          <i class="ion-social-facebook"></i> Sign in with Facebook
+								        </button> -->
+                                     <!--  <form  ng-submit="connectFacebook()" role="form">
+										<input type="hidden" name="scope" value="publish_actions,user_photos" /> 
+										<p class="text-center">
+											<button class="btn btn-default" type="submit"><img src="img/btn-fb-login.png"></button>
+										</p>
+									</form> -->
+									
+									 <div class="row" style="height:20px">
+                                        <div class="col-sm-12">
+                                            <div style="width: 100%; height: 12px; border-bottom: 1px solid #b9c3d0; text-align: center">
+                                              <span style="font-size: 18px; background-color: #ebf1f5; padding: 0 10px; color:#b9c3d0;">
+                                                Or
+                                              </span>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div class="clearfix"></div>
+                                    <div class="spacer10"></div>
+                                     <div class="row">
+                                        <div class="col-xs-6">
+                                       
+                                           
+                                            <button type="submit"  name="submit" class="socialbutton" ng-click="loginController.authenticate('facebook')"><img src="img/btn-fb-login.png" class="img-responsive" /></button>
+                                        </div>
+                                        <div class="col-xs-6">
+                                    
+                                             <button type="submit"  name="submit" class="socialbutton" ng-click="loginController.authenticate('google')"><img src="img/btn_gplus-login.png" class="img-responsive" /></button>
+                                          
+                                          
+                                        </div>
+                                    </div>
+                                  
+                                 <div class="spacer10"></div>
+                                      <div class="spacer10"></div>
+                                    <div class="clearfix"></div>
+                                    <!--<div class="spacer"></div>-->
+                                </div>
+                               
+                            </div>
+                        </div>
+                        
+                    </div>
+            </div>
+        </div>
+ 
+    
+    <div class="container footer">
+   		 <div class="spacer20"></div>
+        <div class="spacer20"></div>
+        <div class="spacer20"></div>
+        <div class="spacer20"></div>
+        <div class="box">
+            <p class="text-center"><a href="#">User Agreement</a> | <a href="#">Privacy Policy</a> | <a href="3">Community Guidelines</a> | <a href="#">Cookie Policy</a> | <a href="#">Copyright Policy</a> | <a href="#">Guest Controls</a></p>
+            <p class="text-center">Praveshika &copy; 2018</p>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+ 
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
+    <!-- <script src="js/bootstrap.min.js"></script -->
+        <!-- SCRIPTS -->
+        <!--<script src="js/customjs.js"></script>-->
+         <script src="js/js-tab.js"></script> 
+        
+        <!-- My Js -->
+        
+     <script>
+     /*$(document).ready(function(){*/
+    	    $(".signin-q").click(function(){
+    	        $(".join-tab").addClass('active');
+    	        $("#signup").hide();
+    	        $("#login").show();
+    	    });
+    	    $(".join-q").click(function(){
+    	    	$(".signin-tab").addClass('active');
+    	    	$("#signup").show();
+    	        $("#login").hide();
+    	    });
+    	/*});*/
+     </script>
+         <script type="text/javascript">
+        $(document).ready(function() {
+           /*  $("#nextwiz").click(function(){
+                $(".tab-paned").removeClass("active");
+                var radioitem = $('input[name="optradio"]:checked').val();
+                if(radioitem==1){
+                    $("#secondtab").delay(500).addClass("active"); 
+                }else{
+                    $("#thirdtab").addClass("active");
+                }
+                $(".social-contn").show("1000");
+                return false;
+            }); */
+            $('input[name|="optradio"]').change(function() {
+                if($(this).val()=='1') {
+                    $(".s-domain").fadeOut("slow");
+                    $(".s-persona").fadeIn("slow");
+                } else {
+                    $(".s-persona").fadeOut("slow");
+                    $(".s-domain").fadeIn("slow");
+                }
+            });
+
+
+        });
+    </script>
+   
+  
+      </body></html>

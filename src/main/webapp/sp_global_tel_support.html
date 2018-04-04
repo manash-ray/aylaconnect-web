@@ -1,0 +1,232 @@
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 2 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<meta http-equiv="Page-Enter"
+	content="revealTrans(Duration=10.0,Transition=1)">
+
+<title>Service Provider Global Tel Support Page</title>
+
+<link
+	href="http://localhost:9082/aylaweb/build/styles/framework-styles.css?v=1.4"
+	rel="stylesheet">
+<link href="http://localhost:9082/aylaweb/build/styles/styles.css?v=1.4"
+	rel="stylesheet">
+
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+	$(function() {
+		//$("#include_header").load("sp_public_header.html");
+		$('#include_country_map').prepend('<img id="theImg" src="IMG/map4.png" align="right"/>')
+	});
+</script>
+
+</head>
+
+<body class="">
+		<div ng-controller="ImplicitLoginController as implicitLoginController"></div>
+		<div class="col-md-12">
+			<div class="ad-card">
+				<div class="container-box" style="padding-left: 0px">
+					<div class="row">
+					  <div class="col-xs-2" style = "border:1px solid black;">
+							<ul id="menu">
+								<li><h4><B>Products</B></h4></li>
+								<li><h4>Customers</h4></li>
+								<li><h4>Billing</h4>
+								<li><h4>Knowledgebase</h4>
+							</ul>
+							
+							<div class="row">											
+					<div class="spacer50"></div>				
+					</div>
+						<div class="row">											
+					<div class="spacer150"></div>				
+					</div>
+						<div class="row">											
+					<div class="spacer50"></div>				
+					</div>
+					<div class="row">											
+					<div class="spacer50"></div>				
+					</div>
+					<div class="row">											
+					<div class="spacer50"></div>				
+					</div>
+					<div class="row">											
+					<div class="spacer50"></div>				
+					</div>
+						</div>
+					 <div class="col-xs-10" >	
+					   <div class="row">
+						
+						<div class="col-xs-5" style = "border:1px solid black;">
+							<div class="row">
+								<div>
+									<label class="form-control-label"><h3>GlobalTel
+											Products</h3></label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div>
+									<label class="form-control-label tf"><img
+										ng-src="IMG/ico/warn.png" />XD35
+										Router</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div>
+									<label class="form-control-label tf"><img
+										ng-src="IMG/ico/warn.png" />XD35
+										Router</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div>
+									<label class="form-control-label tf"><img
+										ng-src="IMG/ico/warn_red.png" />XD50
+										Modem</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div>
+									<label class="form-control-label tf"><img
+										ng-src="IMG/ico/warn.png" />XD35
+										Router</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div>
+									<label class="form-control-label tf"><img
+										ng-src="IMG/ico/warn_red.png" />XD50
+										Modem</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div>
+									<label class="form-control-label tf"><img
+										ng-src="IMG/ico/warn.png" />XD35
+										Router</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div>
+									<label class="form-control-label tf"><img
+										ng-src="IMG/ico/warn_red.png" />XD50
+										Modem</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div>
+									<label class="form-control-label tf"><img
+										ng-src="IMG/ico/warn.png" />XD50
+										Modem</label>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-xs-5" style = "border:1px solid black;">
+							<div class="row">
+								<div>
+									<label class="form-control-label"><h3>Partner IOT
+											Products</h3></label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div ng-if = "implicitLoginController.vi.status == 'R'">
+									<label class="form-control-label tf"><a href ="deviceDetails" ><img
+										ng-src="IMG/ico/wifi_red.png" />AC2700
+										BBQ - Acme Cooker</label></a>
+								</div>
+								<div ng-if = "implicitLoginController.vi.status != 'R'">
+									<label class="form-control-label tf"><a href ="deviceDetails" ><img
+										ng-src="IMG/ico/wifi_blue.png" />AC2700
+										BBQ - Acme Cooker</label></a>
+								</div>
+							</div>
+
+							<div class="row">
+								<div>
+									<label class="form-control-label tf"><img
+										ng-src="IMG/ico/wifi_red.png" />K890
+										- Heater Corp</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div>
+									<label class="form-control-label tf"><img
+										ng-src="IMG/ico/wifi_blue.png" />HI
+										75 - Bingo</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div>
+									<label class="form-control-label tf"><img
+										ng-src="IMG/ico/wifi_red.png" />TR1000
+										- TexaInst</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div>
+									<label class="form-control-label tf"><img
+										ng-src="IMG/ico/wifi_blue.png" />R3450
+										- Stats</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div>
+									<label class="form-control-label tf"><img
+										ng-src="IMG/ico/wifi_red.png" />AC2700
+										BBQ - Acme Cooker</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div>
+									<label class="form-control-label tf"><img
+										ng-src="IMG/ico/wifi_blue.png" />XD50
+										Modem</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div>
+									<label class="form-control-label tf"><img
+										ng-src="IMG/ico/wifi_red.png" />XD50
+										Modem</label>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-10" style = "border:1px solid black;">
+						    <div class = "row">
+								<div id = "include_country_map" align="center"></div>
+							</div>
+						</div>
+						</div>
+					</div>
+				
+			</div>
+		</div>
+		</div>
+		</div>
+	</div>
+</body>
+</html>

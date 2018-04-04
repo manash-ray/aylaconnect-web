@@ -1,0 +1,419 @@
+<html lang="en" ng-app="app"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 2 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Page-Enter" content="revealTrans(Duration=10.0,Transition=1)">
+    <!-- Note there is no responsive meta tag here -->
+
+    <link rel="icon" href="img/KH_Symbol.png">
+
+    <title>Messaging | Kritical Health App</title>
+
+
+
+  </head>
+
+   <body class="messagepage bodycss" >
+        
+        <div class="content"  ng-controller="MessagesController as messagesController">
+            <div class="container">
+                
+                <div class="row">
+                    <div class="col-md-9">
+
+                        <div class="ad-card">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-2 col-xs-4">
+                                  
+                                    <div class="messages-left-content">
+                                        <ul class="nav nav-pills nav-stacked messages-grouplist"  ng-repeat="messanger in messagesController.messageUsersAll">
+                                            <li class="active">
+                                                <a data-toggle="pill" href="messaging/{{messanger.fromUser}}"  data-ng-click="messagesController.getConversation(true)">
+                                                    <div class="thumb mob-width-100p"><img ng-src="{{messanger.picture}}" class="img-responsive img-circle mob-margin-0auto" width="40" alt=""></div>
+                                                    <div class="summary hidden-sm hidden-xs">
+                                                        <span class="date pull-right"><small>11/04/2016</small></span>
+                                                        <h4 class="mgtop2 mgbottom5  font-regular">{{messanger.name}}</h4>
+                                                        <p>{{messanger.name}}:{{messanger.content}}</p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                           <!--  <li>
+                                                <a data-toggle="pill" href="#message2">
+                                                    <div class="thumb mob-width-100p"><img src="img/profile/ragini.jpg" class="img-responsive img-circle mob-margin-0auto" width="40" alt=""></div>
+                                                    <div class="summary hidden-sm hidden-xs">
+                                                        <span class="date pull-right"><small>11/04/2016</small></span>
+                                                        <h4 class="mgtop2 mgbottom5  font-regular">Ragini Dev</h4>
+                                                        <p>You: Lorem ipsum dolor sit..</p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a data-toggle="pill" href="#message1">
+                                                    <div class="thumb mob-width-100p"><img src="img/profile/ajay.jpg" class="img-responsive img-circle mob-margin-0auto" width="40" alt=""></div>
+                                                    <div class="summary hidden-sm hidden-xs">
+                                                        <span class="date pull-right"><small>11/04/2016</small></span>
+                                                        <h4 class="mgtop2 mgbottom5  font-regular">Ajay Chopra</h4>
+                                                        <p>You: Lorem ipsum dolor sit..</p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a data-toggle="pill" href="#message2">
+                                                    <div class="thumb mob-width-100p"><img src="img/profile/dipti.jpg" class="img-responsive img-circle mob-margin-0auto" width="40" alt=""></div>
+                                                    <div class="summary hidden-sm hidden-xs">
+                                                        <span class="date pull-right"><small>11/04/2016</small></span>
+                                                        <h4 class="mgtop2 mgbottom5  font-regular">Riya Joseph</h4>
+                                                        <p>You: Lorem ipsum dolor sit..</p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a data-toggle="pill" href="#message1">
+                                                    <div class="thumb mob-width-100p"><img src="img/profile/ragini.jpg" class="img-responsive img-circle mob-margin-0auto" width="40" alt=""></div>
+                                                    <div class="summary hidden-sm hidden-xs">
+                                                        <span class="date pull-right"><small>11/04/2016</small></span>
+                                                        <h4 class="mgtop2 mgbottom5  font-regular">Ragini Dev</h4>
+                                                        <p>You: Lorem ipsum dolor sit..</p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a data-toggle="pill" href="#message2">
+                                                    <div class="thumb mob-width-100p"><img src="img/profile/dipti.jpg" class="img-responsive img-circle mob-margin-0auto" width="40" alt=""></div>
+                                                    <div class="summary hidden-sm hidden-xs">
+                                                        <span class="date pull-right"><small>11/04/2016</small></span>
+                                                        <h4 class="mgtop2 mgbottom5  font-regular">Riya Joseph</h4>
+                                                        <p>You: Lorem ipsum dolor sit..</p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a data-toggle="pill" href="#message1">
+                                                    <div class="thumb mob-width-100p"><img src="img/profile/ajay.jpg" class="img-responsive img-circle mob-margin-0auto" width="40" alt=""></div>
+                                                    <div class="summary hidden-sm hidden-xs">
+                                                        <span class="date pull-right"><small>11/04/2016</small></span>
+                                                        <h4 class="mgtop2 mgbottom5  font-regular">Ajay Chopra</h4>
+                                                        <p>You: Lorem ipsum dolor sit..</p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a data-toggle="pill" href="#message2">
+                                                    <div class="thumb mob-width-100p"><img src="img/profile/dipti.jpg" class="img-responsive img-circle mob-margin-0auto" width="40" alt=""></div>
+                                                    <div class="summary hidden-sm hidden-xs">
+                                                        <span class="date pull-right"><small>11/04/2016</small></span>
+                                                        <h4 class="mgtop2 mgbottom5  font-regular">Riya Joseph</h4>
+                                                        <p>You: Lorem ipsum dolor sit..</p>
+                                                    </div>
+                                                </a>
+                                            </li> -->
+                                        </ul>
+                                    </div> 
+                                </div>
+                                <div class="col-md-8 col-sm-10 col-xs-8">
+                                    <div class="messages-right-topbox">
+                                        <a href=""  class="fl-left">
+                                            <!--<div class="width50 fl-left"><img class="img-circle" src="img/profile/swathi.jpg" width="40"/> </div>-->
+                                            <div class="fl-left">
+                                                <!--<h3 class="mgtop2 mgbottom5">Swathi Jain</h3>
+                                                <p>Chief Surgent</p>-->
+                                                <h3>Conversations</h3>
+                                            </div>
+                                        </a>
+                                      <!--   <div class="fl-right">
+                                            <div class="dropdown messages-dropdown">
+                                              <span class="dropdown-toggle groups-toggle mg-rt-5 pull-right" type="button" data-toggle="dropdown"><img class="img-responsive" src="img/kh_icons/g-settings.png"/></span>
+                                              <ul class="dropdown-menu mgtop25">
+                                                <li><a href="#">Add people to the conversation</a></li>
+                                                <li><a href="#">Mark as unread</a></li>
+                                                <li><a href="#">Mute conversation</a></li>
+                                                <li><a href="#">Forward conversation</a></li>
+                                                <li><a href="#">Delete conversation</a></li>
+                                              </ul>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <div class="messages-viewbox">
+                                        <div class="tab-content">
+                                          <div id="message1" class="tab-pane fade in active">
+                                            <div class="messages-comment-item">
+                                                
+                                                 <center  ng-show="noMoreRecordsToShow"><a  data-ng-click="messagesController.getConversations(false)"  class="btn btn-info btn-skills pointer" style="cursor:pointer" >Older Messages ({{messagesController.remaining}})</a></center>
+                                                <ul class="chats list-unstyled" ng-repeat="conversation in messagesController.messageConversations">
+                                                 <li class="in" ng-show="conversation.fromUser != globals.currentUser.id">
+                                                        <div class="media">
+                                                            <div class="pull-left thumb thumb-sm">
+                                                                <img class="media-object img-circle" ng-src="{{conversation.picture}}" alt="">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <p class="media-heading"><a href="{{conversation.userName}}" role="button" tabindex="0" class="name">{{conversation.name }} </a><span class="datetime">at {{conversation.sentDate  | date:'hh:mm a dd MMM
+															yyyy'}}</span></p>
+                                                                <span class="body">{{conversation.content}} </span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="out" ng-show="{{conversation.fromUser == globals.currentUser.id}}">
+                                                        <div class="media">
+                                                            <div class="pull-right thumb thumb-sm">
+                                                                <img class="media-object img-circle" ng-src="{{conversation.picture}}" alt="">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <p class="media-heading"><a role="button" href="{{globals.currentUser.username}}" tabindex="0" class="name">You </a><span class="datetime"> at {{conversation.sentDate | date:'hh:mm a dd MMM
+															yyyy'}}</span></p>
+                                                                <span class="body">{{conversation.content}}  </span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                  </ul>
+                                                    <!-- <li class="in">
+                                                        <div class="media">
+                                                            <div class="pull-left thumb thumb-sm">
+                                                                <img class="media-object img-circle" src="img/profile/dipti.jpg" alt="">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <p class="media-heading"><a role="button" tabindex="0" class="name">Riya Joseph </a><span class="datetime">2 hours ago</span></p>
+                                                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="out">
+                                                        <div class="media">
+                                                            <div class="pull-right thumb thumb-sm">
+                                                                <img class="media-object img-circle" src="img/profile-icon-small.png" alt="">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <p class="media-heading"><a role="button" tabindex="0" class="name">You </a><span class="datetime">2 hours ago</span></p>
+                                                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="in">
+                                                        <div class="media">
+                                                            <div class="pull-left thumb thumb-sm">
+                                                                <img class="media-object img-circle" src="img/profile/dipti.jpg" alt="">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <p class="media-heading"><a role="button" tabindex="0" class="name">Riya Joseph </a><span class="datetime">2 hours ago</span></p>
+                                                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="out">
+                                                        <div class="media">
+                                                            <div class="pull-right thumb thumb-sm">
+                                                                <img class="media-object img-circle" src="img/profile-icon-small.png" alt="">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <p class="media-heading"><a role="button" tabindex="0" class="name">You </a><span class="datetime">2 hours ago</span></p>
+                                                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="in">
+                                                        <div class="media">
+                                                            <div class="pull-left thumb thumb-sm">
+                                                                <img class="media-object img-circle" src="img/profile/ragini.jpg" alt="">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <p class="media-heading"><a role="button" tabindex="0" class="name">Ragini Dev </a><span class="datetime">2 hours ago</span></p>
+                                                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="out">
+                                                        <div class="media">
+                                                            <div class="pull-right thumb thumb-sm">
+                                                                <img class="media-object img-circle" src="img/profile-icon-small.png" alt="">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <p class="media-heading"><a role="button" tabindex="0" class="name">You </a><span class="datetime">2 hours ago</span></p>
+                                                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    
+                                                </ul> -->
+                                            </div>
+                                            <div class="clearfixes"></div>
+                                          </div>
+                                          <div id="message2" class="tab-pane fade">
+                                            <div class="messages-comment-item">
+                                                <ul class="chats list-unstyled">
+                                                    <li class="in">
+                                                        <div class="media">
+                                                            <div class="pull-left thumb thumb-sm">
+                                                                <img class="media-object img-circle" src="img/profile/ragini.jpg" alt="">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <p class="media-heading"><a role="button" tabindex="0" class="name">Ragini Dev </a><span class="datetime">at 12.10.2014</span></p>
+                                                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="out">
+                                                        <div class="media">
+                                                            <div class="pull-right thumb thumb-sm">
+                                                                <img class="media-object img-circle" src="img/profile-icon-small.png" alt="">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <p class="media-heading"><a role="button" tabindex="0" class="name">You </a><span class="datetime">2 hours ago</span></p>
+                                                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="in">
+                                                        <div class="media">
+                                                            <div class="pull-left thumb thumb-sm">
+                                                                <img class="media-object img-circle" src="img/profile/ragini.jpg" alt="">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <p class="media-heading"><a role="button" tabindex="0" class="name">Ragini Dev </a><span class="datetime">2 hours ago</span></p>
+                                                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="out">
+                                                        <div class="media">
+                                                            <div class="pull-right thumb thumb-sm">
+                                                                <img class="media-object img-circle" src="img/profile-icon-small.png" alt="">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <p class="media-heading"><a role="button" tabindex="0" class="name">You </a><span class="datetime">2 hours ago</span></p>
+                                                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="in">
+                                                        <div class="media">
+                                                            <div class="pull-left thumb thumb-sm">
+                                                                <img class="media-object img-circle" src="img/profile/ragini.jpg" alt="">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <p class="media-heading"><a role="button" tabindex="0" class="name">Ragini Dev </a><span class="datetime">2 hours ago</span></p>
+                                                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="out">
+                                                        <div class="media">
+                                                            <div class="pull-right thumb thumb-sm">
+                                                                <img class="media-object img-circle" src="img/profile-icon-small.png" alt="">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <p class="media-heading"><a role="button" tabindex="0" class="name">You </a><span class="datetime">2 hours ago</span></p>
+                                                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="in">
+                                                        <div class="media">
+                                                            <div class="pull-left thumb thumb-sm">
+                                                                <img class="media-object img-circle" src="img/profile/ragini.jpg" alt="">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <p class="media-heading"><a role="button" tabindex="0" class="name">Ragini Dev </a><span class="datetime">2 hours ago</span></p>
+                                                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="out">
+                                                        <div class="media">
+                                                            <div class="pull-right thumb thumb-sm">
+                                                                <img class="media-object img-circle" src="img/profile-icon-small.png" alt="">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <p class="media-heading"><a role="button" tabindex="0" class="name">You </a><span class="datetime">2 hours ago</span></p>
+                                                                <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    
+                                                </ul>
+                                            </div>
+                                          </div>
+                                          <div id="message3" class="tab-pane fade">
+                                            <h3>Menu 2</h3>
+                                            <p>Some content in menu 2.</p>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="row"  ng-hide="messagesController.messageUsersAll.length==0">
+                                        <div class="col-xs-12">
+                                            <div class="messages-commentbox">
+                                                <form role="form" ng-submit="messagesController.sendMessage()">
+                                                  <div class="form-group messages-textarea">
+                                                    <textarea class="wc-form-control" id="email"  ng-model="messagesController.singleMessage.content"     placeholder="Write your message…"></textarea>
+                                                  </div>
+                                                  
+                                                  
+                                                   <input type="submit" style="display:none"/>
+                                                  <button type="submit">send
+                                                  </button>
+                                                  
+                                                  <div class="message-actionarea">
+                                                    <div class="m-leftaction"></div>
+                                                   <!--  <div class="m-rightaction fl-right">
+                                                        <ul class="list-inline">
+                                                            <li><a href="">
+                                                                <img src="img/kh_icons/g-settings.png"/>
+                                                            </a></li>
+                                                            <li></li>
+                                                            <li></li>
+                                                        </ul>
+                                                    </div> -->
+                                                  </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                   
+                </div>
+                <div class="spacer20"></div>
+            </div>
+        </div>
+
+<!--         <div class="main-footer full-width">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <a href="index.html"><img src="img/kh_logo.png" alt="Kritical" class="img-responsive"></a>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="nav navbar-nav pull-right">
+                            <a class="" href="#">About</a> &nbsp; 
+                            <a class="" href="#">Networks</a> &nbsp; 
+                            <a class="" href="groups.html">Groups</a> &nbsp; 
+                            <a class="" href="blog.html">Blogs</a> &nbsp;
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        
+                        <p class="text-center">
+                            <a class="" href="#">Careers</a> | 
+                            <a class="" href="#">About</a> | 
+                            <a class="" href="#">Cookie Policy</a> | 
+                            <a class="" href="#">Privacy Policy</a> | 
+                            <a class="" href="#">User Agreement</a>
+                        </p>
+                    </div>
+                    <div class="col-sm-12 text-center">    
+                        <p class="">Kritical Health Corporation © 2016</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+      <!-- Bootstrap core JavaScript
+    ================================================== -->
+
+    </body></html>

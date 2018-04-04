@@ -1,0 +1,67 @@
+<div class="signup-form-container signup-container ">
+        
+                                      <ul class="tab-group" >
+                          
+                            <li class="tab  active join-tab"><a href="#login">Log In</a></li>
+                        </ul>
+                        <div class="signup-form-wrapper">
+                            
+                                <div id="login"   ng-controller="LoginController as loginController" style="display:block">    <!-- ng-show="globals.currentUser.id==''" -->
+                                    <h2 class="text-center">Login to Ayla</h2>
+                                    <div class="alerts-box"></div>
+                                    <form name="form" ng-submit="loginController.loginOauth()" role="form">
+                                    
+                                        <div class="signup-content">
+                                          <div ng-class="{'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+                                            <div class="container-box" style="padding-left:20px">
+                                            
+                                                                                    
+                                            
+                                            
+                                                    <div class="inputicon">
+                                                        <img src="img/icon-user.png"/>
+                                                    </div>
+                                                    <div class="inputbox" >
+                                                        <input   ng-model="loginController.user.email" class="signup-inputs"  type="text" placeholder="EMAIL"  required="required"  >
+                                                        <span class="bar"></span>
+                                                      
+                                                    </div>
+                                              
+                                              
+                                                
+                                                    <div class="inputicon">
+                                                        <img src="img/icon-lock.png"/>
+                                                    </div>
+                                                    <div class="inputbox">
+                                                        <input  ng-model="loginController.user.password" class="signup-inputs" type="password" placeholder="PASSWORD" required="required">
+                                                        <span class="bar"></span>
+                                                         
+                                                    </div>
+                                                   
+                                             
+                                                	
+                                                  
+                                                
+						
+                                            </div>
+                                            <div class="login-bottom">
+                                                <div class="join-btn text-center">
+                                                    <button id="login" type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-success signup-btn" data-position-join="right"><span class="fill-v2">Log In</span></button>
+                                                </div>
+                                             
+                                        </div>
+                                       
+                                           </div>                                        
+                                    </form> 
+                                   
+                                 <div class="spacer10"></div>
+                                      <div class="spacer10"></div>
+                                    <div class="clearfix"></div>
+                                    <!--<div class="spacer"></div>-->
+                                      <div class="join-btn text-center">
+                                    <button type="button" class="btn btn-follow" data-dismiss="modal" onlcick="closemodal()">Close</button>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>

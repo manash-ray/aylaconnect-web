@@ -1,0 +1,166 @@
+<html lang="en"  ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 2 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Page-Enter" content="revealTrans(Duration=10.0,Transition=1)">
+    <!-- Note there is no responsive meta tag here -->
+
+    <link rel="icon" href="img/KH_Symbol.png">
+
+    <title>Forgot Password | Kritical Health App</title>
+
+<script>
+
+$('#invitation-text').on('click', function(e) {
+
+	$("#invitation-text-blk").toggle();
+
+});
+</script>
+<style>
+
+</style>
+  </head>
+
+  <body id="startpage">
+ <br><br>
+
+    <div class="container">
+        <div class="save-texture" >
+            <div class="save-container">
+                <div class="save-form-container" style="width:600px;">
+                        <ul class="save-tab-group">
+                            <li class="save-tab active"><a>Invitation</a></li>
+                             
+                           
+                        </ul>
+                       
+                        <div class="invitation-text">
+                            <div class="tab-content" >
+                                <div id="save" ng-controller="InvitationController as invitationController" >
+                                      
+                                    <h3 class="text-left"></h3>
+                                    <div class="alerts-box"> You can put multiple emails, which can be semi-colon(;) separated. If you put multiple email, name will get replaced with empty string and the recipient will receive message with only 'Hi'. There is three options, First Option, will get you only link. Second will send email with default email. and Third option, will get you message with default text, which you can again customize and send to recipient. </div>
+                                  
+                                    <form  class="" name="form"  method="POST" novalidate="" role="form">
+                                        <div class="save-content" style="width:600px;">
+                                         <div ng-class="{'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+                                            <div class="container-box" >
+                                                <div class="inp">
+                                                    
+                                                    <div class="inputbox" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }" >
+                                                        <input ng-model="invitationController.invitation.email" class="save-inputs" name="email" id="email" required="required"  type="" placeholder="email" required="required" value="" autofocus="&quot;autofocus&quot;/">
+                                                        <span class="bar"></span>
+                                                        <!-- <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">email is required</span> -->
+                                                    </div>
+                                                </div>
+                                                 <br>
+                                                 
+                                                 
+                                                  <div class="inp">
+                                                    
+                                                    <div class="inputbox" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }" >
+                                                        <input ng-model="invitationController.invitation.name" class="save-inputs" name="name" id="name" type="name"    placeholder="name" value="" autofocus="&quot;autofocus&quot;/">
+                                                        <span class="bar"></span>
+                                                        <!-- <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">email is required</span> -->
+                                                    </div>
+                                                </div>
+                                               <!--  <div class="inp">
+                                                    
+                                                    <div class="inputbox" ng-class="{ 'has-error': form.confirmPassword.$dirty && form.confirmPassword.$error.required }" >
+                                                        <input ng-model="changePasswordController.user.confirmPassword" class="save-inputs" name="confirmPassword" id="confirmPassword" type="password" placeholder="Confirm Password" required="required" value="" autofocus="&quot;autofocus&quot;/">
+                                                        <span class="bar"></span>
+                                                        <span ng-show="form.confirmPassword.$dirty && form.confirmPassword.$error.required" class="help-block">Confirm Password</span>
+                                                    </div>
+                                                </div> -->
+               
+                                            </div>
+                                           <div class="row">
+                                            <div class=" text-left" >
+                                               <button type="submit" class="btn btn-success" ng-click="invitationController.sendInvitation('getLink')" data-position-join="right">Get Invitation Link</button>
+                                                
+                                                <button type="submit" class="btn btn-success " data-position-join="right" ng-click="invitationController.sendInvitation('defaultMail')">Send Invitation Link Default</button>
+                                                
+                                              <!--   <button type="submit"  id="invitation-text" class="btn btn-success" data-position-join="right" ng-click="invitationController.sendInvitation('getText')"><spans class="fill-v2">Get Invitation Text</span></button> -->
+                                               				<div class="row" id="invitation-text-blk" style="display: none; padding: 2%">
+																
+																<div class="col-sm-12 mgtop5">
+																			<div class="form-group">
+																			    <label class="control-label col-sm-3 col-md-4" for="description">Header</label>
+																			    <div  class="col-sm-3 col-md-8">
+																			      
+																			      <textarea ng-model="invitationController.invitation.header"
+																											class="wc-form-control" name="header" id="header"
+																											autofocus="&quot;autofocus&quot;/"
+																											style="width: 450px; height: 50px;"> </textarea>
+																			    </div>
+																			</div>
+																			<div class="spacer5"></div>
+																</div>
+																<div class="col-sm-12 mgtop5">
+																			<div class="form-group">
+																			    <label class="control-label col-sm-3 col-md-4" for="description">Mail Content</label>
+																			    <div class="col-sm-3 col-md-8">
+																			      
+																			      <textarea ng-model="invitationController.invitation.invitationLink"
+																											class="wc-form-control" name="content" id="content"
+																											autofocus="&quot;autofocus&quot;/"
+																											style="width: 450px; height: 250px;"> </textarea>
+																			    </div>
+																			</div>
+																			<div class="spacer10"></div>
+																			<div class="spacer10"></div>
+																</div>
+																<div class="spacer10"></div>
+																<div class="col-sm-12 mgtop5">
+																 <button type="submit"   class="btn btn-success pull-right" ng-click="invitationController.sendInvitation('textMail')" data-position-join="right"><spans class="fill-v2">Send</span></button>
+																	</div>
+														</div>
+                                            </div>
+                        
+                                            </div>
+                                        </div>
+                                    </form>
+                                    	<div class="spacer10"></div>
+		                                	<div class="row" ng-repeat=" invitation in invitationController.invitationLink " >
+		                                		<div class="inv" >
+										            
+										              <div class="invB">
+										                <p ng-show="message">Your invitation Link is {{invitation.invitationLink}}</p>
+										               
+										            </div>
+									          	</div>
+		                                	
+		                                	</div>
+                                      
+                                </div>
+                                
+                               
+                            		<div class="spacer20"></div>
+                           
+                                   
+                                   
+                                    <!--<div class="spacer"></div>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer20"></div>
+                    </div>
+            </div>
+            
+<div class="spacer20"></div>
+<div class="spacer20"></div>
+        </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+ 
+  
+	
+      </body></html>
