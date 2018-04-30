@@ -10,7 +10,6 @@
 <!-- Note there is no responsive meta tag here -->
 
 <link rel="icon" href="img/KH_Symbol.png">
-
 <title>Alerts</title>
 
 <style>
@@ -45,21 +44,22 @@ text-align: left;
 
 <body class="">
 
-	<div class="">
-		<div ng-controller="AlertsController as alertsController">
+	
+		<div  class="wrapper" ng-controller="AlertsController as alertsController">
 
 			<div class="row" >
 				<div class="col-md-12">
 					<div class="ad-card">
-						
-						<h3>Alert Settings </h3>
+						<div class="cd-wrap-imp">
+						<h3>Alert Settings</h3>
 																	
 							<div class="row">											
-								<div class="spacer5"></div>	
-							<h4>Alerts List <button type="button" class="btn btn-follow pull-right "																	
-																	><a href="newalert"><span style="color:white">Create Alert</span></a></button></h4>
+								<div class="spacer5"></div>
+							</div>
+							<h4>Alerts List <button type="button" class="btn btn-follow pull-right mgleft10 mgtop2" >
+							<a href="newalert"><span style="color:white">Create Alert</span></a></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
 							
-								<div class="row" ></row>
+								<div class="row" >
 								<div class="save-content">
 									
 									<div class="container-box" style="padding-left: 0px">
@@ -125,9 +125,10 @@ text-align: left;
 																	<span>{{x.type}}</span>
 																	
 																</div>
-																<button type="button"
+																<!--  <button type="button"
 																	class="btn btn-follow pull-right mgleft10 mgtop2"																	
 																	ng-click="">View</button>
+																-->
 															
 																</div>
 														</div>

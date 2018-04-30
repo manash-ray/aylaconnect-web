@@ -11,8 +11,6 @@
 <meta http-equiv="Page-Enter"
 	content="revealTrans(Duration=10.0,Transition=1)">
 
-
-<meta name="author" content="Binay Pani" />
 <meta property="og:url" content="{{ngMeta['og:url']}}" />
 <meta property="og:description" content="{{ngMeta['og:description']}}" />
 <meta property="og:title" content="{{ngMeta['og:title']}}" />
@@ -20,24 +18,64 @@
 
 
 
-
-
-
-
-<link rel="icon" href="img/KH_Symbol.png">
-
-<link
-	href="${pageContext.request.contextPath}/build/styles/framework-styles.css?v=1.4"
-	rel="stylesheet">
-
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery.orgchart.min.css"> --%>
+<link rel="icon" href="IMG/KH_Symbol.png">
 
 
 <link
-	href="${pageContext.request.contextPath}/build/styles/styles.css?v=1.4"
+	href="${pageContext.request.contextPath}/src/styles/css/aylastyles.css"
+	rel="stylesheet">
+	
+	<link
+	href="${pageContext.request.contextPath}/src/styles/css/bootstrap.css"
+	rel="stylesheet">
+	
+	<link
+	href="${pageContext.request.contextPath}/src/styles/css/bootstrap.min.css"
+	rel="stylesheet">
+	
+  	<link
+	href="${pageContext.request.contextPath}/src/styles/css/save.css"
+	rel="stylesheet">
+	
+	<link
+	href="${pageContext.request.contextPath}/src/styles/css/save-tab.css"
+	rel="stylesheet">
+
+	<link
+	href="${pageContext.request.contextPath}/src/styles/css/datepicker.css"
+	rel="stylesheet">
+	
+	<link
+	href="${pageContext.request.contextPath}/src/styles/css/angular-toastr.css"
+	rel="stylesheet">
+	
+	<link
+	href="${pageContext.request.contextPath}/src/styles/css/angular-material.css"
+	rel="stylesheet">
+	
+	<link
+	href="${pageContext.request.contextPath}/src/styles/css/style.css"
+	rel="stylesheet">
+	
+	<link
+	href="${pageContext.request.contextPath}/src/styles/css/font-awesome.min.css"
 	rel="stylesheet">
 
 
+<!--
+
+<link
+	href="${pageContext.request.contextPath}/build/styles/framework-styles.css"
+	rel="stylesheet">
+
+
+
+<link
+	href="${pageContext.request.contextPath}/build/styles/styles.css"
+	rel="stylesheet">
+	
+-->	
+	
 <base href="/aylaconnectweb/">
 
 </head>
@@ -61,9 +99,10 @@
 
 
 		<div ng-view></div>
-
-		<script
-			src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCkCdx2rZN8C_UmJLsh997mWwkR8590IeU"></script>
+   
+   
+   
+	<script type="text/javascript"	src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCDgX8fia4CF9dTiZCvQxTI9xLXc5hSD1Q&v=3"></script>
 
 
 
@@ -80,12 +119,63 @@
 </script>
 
 
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/angular.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/angular.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/angular-animate.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/angular-aria.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/angular-cookies.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/angular-cookies.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/angular-material.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/angular-material.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/angular-messages.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/moment.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/angular-moment.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/angular-resource.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/angular-route.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/angular-route.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/angular-sanitize.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/angular-strap.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/angular-toastr.tpls.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/angular-ui-form-validation.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/angular-ui-router.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/jquery.min.js"></script>
+   
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/loading-bar.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/js-tab.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/xeditable.min.js"></script>
 
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/jquery.datetimepicker.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/jquery.datetimepicker.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/jquery.easing.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/jquery.easypiechart.min.js"></script>
+      
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/ng-file-upload.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugins/angular-animate.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/master.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/angular-google-chart.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/ng-infinite-scroll.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/ng-map.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/npm.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/resize.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/satellizer.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/satellizer.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/plugins/autocomplete/jquery.autocomplete.js"></script>
 
+    
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/bootbox.js"></script>
 
-		<script
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/bootstrap-select.min.js"></script>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/bootstrap-typeahead.min.js"></script>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/src/scripts/js/ui-bootstrap-tpls-2.2.0.min.js"></script>
+
+	<!-- 	<script
 			src="${pageContext.request.contextPath}/build/scripts/frameworks.js?v=1.9"></script>
-
+ -->
 
 		<script src="https://www.google.com/jsapi?ext.js"></script>
 
@@ -95,12 +185,8 @@
 		<script src="${pageContext.request.contextPath}/js/ngMeta.js"></script>
 
 
-
-
-
-
-
 		<%-- 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.orgchart.min.js"></script> --%>
+
 
 
 
@@ -170,12 +256,13 @@
 
 		<script
 			src="${pageContext.request.contextPath}/src/scripts/app-controllers/alerts.controller.js?v=1.9"></script>
+			
+		<script
+			src="${pageContext.request.contextPath}/src/scripts/app-controllers/viewalerts.controller.js?v=1.9"></script>
 
 		<script
 			src="${pageContext.request.contextPath}/src/scripts/app-controllers/implicitLogin.controller.js?v=1.9"></script>
 
-		<script
-			src="${pageContext.request.contextPath}/src/scripts/app-controllers/spalerts.controller.js?v=1.9"></script>
 		<script>
 			angular.module('app').filter('unsafe', function($sce) {
 				return $sce.trustAsHtml;

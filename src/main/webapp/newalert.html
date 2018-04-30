@@ -12,7 +12,6 @@
 <link rel="icon" href="img/KH_Symbol.png">
 
 <title>Alerts</title>
-
 <style>
 .wc-form-control-text{
   display: block;
@@ -51,8 +50,9 @@
 						<h3>Alert Settings <button type="button" class="btn btn-follow pull-right mgleft10 mgtop2"																	
 																	><a href="alertsettings"><span style="color:white">Alerts List</span></a></button></h3>
 																	
-								<div class="row">											
-								<div class="spacer5"></div>									
+							<div class="row">											
+								<div class="spacer5"></div>
+							</div>								
 							<h4>Create New Alert</h4>
 							
 								
@@ -71,18 +71,8 @@
 													<input type="checkbox" ng-model="alertsController.newalert.is_enabled"> Enable Alert
 												
 												</div>
-												<div class="col-xs-2">
-												<label class="form-control-label">Assign To Role</label>
-												</div>
-												<div class="col-xs-4">
-												<select name="multipleSelect" ng-model="multipleRoles" multiple  ng-required="true" >
-																<option value="OEM:Global IOT:Acme Telecom">OEM:Global IOT:Acme Telecom</option>
-     															<option value="OEM:Global IOT:Acme Retail">OEM:Global IOT:Acme Retail</option>
-      																		
-   												 </select>
-        
-        										
-												</div>									
+												
+        																			
 											</div>
 											</div>
 											
@@ -199,6 +189,26 @@
 																					
 											</div>
 											</div>
+											<div class="row"><div class="spacer5"></div> </div>
+											<div class="row">
+											<div class="form-group">
+												<div class="col-xs-4">										
+												
+												</div>
+												<div class="col-xs-2">
+												<label class="form-control-label">Assign To Role</label>
+												</div>
+												<div class="col-xs-4">
+												<select name="multipleSelect" ng-model="multipleRoles" multiple  ng-required="true" >
+																<option value="OEM::Global_IOT::Acme_Retail">OEM::Global_IOT::Acme_Retail</option>
+     															<option value="OEM::Global_IOT::Acme_Telecom">OEM::Global_IOT::Acme_Telecom</option>
+      																		
+   												 </select>
+        
+        										
+												</div>									
+											</div>
+											</div>
 											
 											<div class="row">											
 											<div class="spacer5"></div>
@@ -214,9 +224,6 @@
 											
 											
 										</div>
-													
-													
-													
 												
                   								</div>	
                   								
@@ -225,13 +232,6 @@
 											</div>
 											
 											
-																									
-											
-											
-											
-										
-
-										
 									</div>
 								</div>
 							
@@ -244,7 +244,7 @@
 
 			</div>
 		</div>
-	</div>
+	
 
 
 	

@@ -10,7 +10,6 @@
 <!-- Note there is no responsive meta tag here -->
 
 <title>Alerts</title>
-
 <style>
 .wc-form-control-text{
   display: block;
@@ -45,7 +44,7 @@ text-align: left;
 <body class="">
 
 	
-	<div ng-controller="AlertsController as alertsController">
+	<div ng-controller="ViewAlertsController as viewAlertsController">
 
 			<div class="col-md-12">
 			<div class="ad-card">
@@ -58,7 +57,7 @@ text-align: left;
 							<label class="form-control-label">Device</label>
 						</div>
 						<div class="col-xs-5"  >
-							<span >{{alertsController.vi.deviceId}}</span>
+							<span >{{viewAlertsController.vi.deviceId}}</span>
 																	
 						</div>
 					</div>
@@ -67,7 +66,7 @@ text-align: left;
 							<label class="form-control-label tf">Model</label>
 						</div>
 						<div class="col-xs-5 tf"  >
-							<span >{{alertsController.vi.model}}</span>
+							<span >{{viewAlertsController.vi.model}}</span>
 																	
 						</div>
 					</div>
@@ -76,36 +75,36 @@ text-align: left;
 							<label class="form-control-label tf">Status</label>
 						</div>
 						
-						<div class="col-xs-4 tf"  ng-if="alertsController.vi.status == 'R'">
-						<span style="color:red">{{alertsController.vi.ruleName}}</span>
+						<div class="col-xs-4 tf"  ng-if="viewAlertsController.vi.status == 'R'">
+						<span style="color:red">{{viewAlertsController.vi.ruleName}}</span>
 						</div>
-						<div class="col-xs-5 tf"  ng-if="alertsController.vi.status == 'G'">
-						<span style="color:blue">{{alertsController.vi.ruleName}}</span>																	
+						<div class="col-xs-5 tf"  ng-if="viewAlertsController.vi.status == 'G'">
+						<span style="color:blue">{{viewAlertsController.vi.ruleName}}</span>																	
 						</div>
-						<div class="col-xs-5 tf"  ng-if="alertsController.vi.status == 'Y'">
-						<span style="color:#CCCC00">{{alertsController.vi.ruleName}}</span>																	
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-4">
-							<label class="form-control-label tf">ALert Timestamp</label>
-						</div>
-						<div class="col-xs-5 tf"  >
-						{{alertsController.vi.alertDatef|date:'HH.mm.ss dd/MM/yyyy '}} 
-																	
+						<div class="col-xs-5 tf"  ng-if="viewAlertsController.vi.status == 'Y'">
+						<span style="color:#CCCC00">{{viewAlertsController.vi.ruleName}}</span>																	
 						</div>
 					</div>
+
 
 					<div class="row"><p class="bottom-line"></p></div>
 					<div class="row">
 						<div class="col-xs-6">
-							<label class="form-control-label">Last Recorded Data points</label>
+							<label class="form-control-label">Last Recorded Data Points</label>
 						</div>
 						
 					</div>
-					
-					<div ng-repeat="(key, value) in alertsController.vi.alertData">
-					<div class="row" ng-if="key != alertsController.vi.alertData['ruleattrib']  && key != 'ruleattrib' ">
+					<div class="row">
+						<div class="col-xs-4">
+							<label class="form-control-label tf">Alert Timestamp</label>
+						</div>
+						<div class="col-xs-5 tf"  >
+						{{viewAlertsController.vi.alertDatef|date:'yyyy/MM/dd - HH.mm.ss'}} 
+																	
+						</div>
+					</div>
+					<div ng-repeat="(key, value) in viewAlertsController.vi.alertData">
+					<div class="row" ng-if="key != viewAlertsController.vi.alertData['ruleattrib']  && key != 'ruleattrib' ">
 						<div class="col-xs-4">
 							<label class="form-control-label tf">{{key}}</label>
 						</div>
@@ -114,25 +113,27 @@ text-align: left;
 						</div>
 												
 					</div>
-					<div class="row" ng-if="key == alertsController.vi.alertData['ruleattrib']  ">
+
+					<div class="row" ng-if="key == viewAlertsController.vi.alertData['ruleattrib']  ">
 						<div class="col-xs-4">
 							<label class="form-control-label tf">{{key}}</label>
 						</div>
-						<div class="col-xs-5"  ng-if="alertsController.vi.status == 'R'">
+						<div class="col-xs-5"  ng-if="viewAlertsController.vi.status == 'R'">
 							<span style="color:red">{{value}}</span>
 																	
 						</div>
-						<div class="col-xs-5"  ng-if="alertsController.vi.status == 'G'">
+						<div class="col-xs-5"  ng-if="viewAlertsController.vi.status == 'G'">
 							<span style="color:blue">{{value}}</span>
 																	
 						</div>
-						<div class="col-xs-5"  ng-if="alertsController.vi.status == 'Y'">
+						<div class="col-xs-5"  ng-if="viewAlertsController.vi.status == 'Y'">
 							<span style="color:#CCCC00">{{value}}</span>
 																	
 						</div>
 						
 												
 					</div>
+
 					</div>
 					
 					<div class="row">											
@@ -145,10 +146,10 @@ text-align: left;
 						</div>
 						
 					</div>
-					<div ng-repeat="x in alertsController.vi.recetAlerts">
+					<div ng-repeat="x in viewAlertsController.vi.recetAlerts">
 					<div class="row">
 						<div class="col-xs-5 tf"  >
-						{{x.alertDatef|date:'MMM dd yyyy HH.mm.ss'}} 																	
+						{{x.alertDatef|date:'yyyy/MM/dd - HH.mm.ss'}} 																	
 						</div>
 						<div class="col-xs-4 tf"  ng-if="x.status == 'R'">
 						<span style="color:red">{{x.rule.name}}</span>
@@ -184,14 +185,14 @@ text-align: left;
 							<label class="form-control-label">Name</label>
 						</div>
 						<div class="col-xs-4 tf"  >
-							<span >{{alertsController.vi.customer.name}}</span>
+							<span >{{viewAlertsController.vi.customer.name}}</span>
 																	
 						</div>
 						<div class="col-xs-3 tf">
 							<label class="form-control-label">Customer ID</label>
 						</div>
 						<div class="col-xs-3 tf"  >
-							<span >{{alertsController.vi.customer.id}}</span>
+							<span >{{viewAlertsController.vi.customer.id}}</span>
 																	
 						</div>
 					</div>
@@ -200,14 +201,14 @@ text-align: left;
 							<label class="form-control-label">Email</label>
 						</div>
 						<div class="col-xs-4 tf"  >
-							<span >{{alertsController.vi.customer.email}}</span>
+							<span >{{viewAlertsController.vi.customer.email}}</span>
 																	
 						</div>
 						<div class="col-xs-3 tf">
 							<label class="form-control-label">Phone</label>
 						</div>
 						<div class="col-xs-3 tf"  >
-							<span >{{alertsController.vi.customer.phone}}</span>
+							<span >{{viewAlertsController.vi.customer.phone}}</span>
 																	
 						</div>
 					</div>
@@ -217,7 +218,7 @@ text-align: left;
 							<label class="form-control-label">Address</label>
 						</div>
 						<div class="col-xs-8 tf"  >
-							<span >{{alertsController.vi.customer.address}}</span>
+							<span >{{viewAlertsController.vi.customer.address}}</span>
 																	
 						</div>
 					</div>
@@ -226,7 +227,7 @@ text-align: left;
 							<label class="form-control-label"><B>ISP Status</B></label>
 						</div>
 						<div class="col-xs-6 tf"  >
-							<span >{{alertsController.vi.customer.ispStatus}}</span>
+							<span >{{viewAlertsController.vi.customer.ispStatus}}</span>
 																	
 						</div>
 					</div>
@@ -235,7 +236,7 @@ text-align: left;
 							<label class="form-control-label">ISP</label>
 						</div>
 						<div class="col-xs-6 tf"  >
-							<span >{{alertsController.vi.customer.ispName}}</span>
+							<span >{{viewAlertsController.vi.customer.ispName}}</span>
 																	
 						</div>
 					</div>	
@@ -244,15 +245,15 @@ text-align: left;
 							<label class="form-control-label">Service Type</label>
 						</div>
 						<div class="col-xs-6 tf"  >
-							<span >{{alertsController.vi.customer.serviceType}}</span>
+							<span >{{viewAlertsController.vi.customer.serviceType}}</span>
 																	
 						</div>
 					</div>	
 					
 					<div>
-					<ng-map   id="map2" center="{{alertsController.vi.customer.latitude}}, {{alertsController.vi.customer.longitude}}" zoom="8">
+					<ng-map   id="map2" center="{{viewAlertsController.vi.customer.latitude}}, {{viewAlertsController.vi.customer.longitude}}" zoom="8">
 																  
-						<marker  position="[{{alertsController.vi.customer.latitude}}, {{alertsController.vi.customer.longitude}}]" draggable=true> 
+						<marker  position="[{{viewAlertsController.vi.customer.latitude}}, {{viewAlertsController.vi.customer.longitude}}]" draggable=true> 
 																												      
 						</marker></ng-map>
 					</div>
@@ -282,13 +283,13 @@ text-align: left;
 						</div>
 						
 					</div>
-					<div ng-repeat="x in alertsController.vi.pastTickets">
+					<div ng-repeat="x in viewAlertsController.vi.pastTickets">
 					<div class="row">
 						<div class="col-xs-4 tf">
 						{{x.issue}}
 						</div>
 						<div class="col-xs-3 tf"  >
-						{{x.date|date:'MMM dd yyyy'}} 																	
+						{{x.date|date:'yyyy/MM/dd - HH.mm.ss'}} 																	
 						</div>
 						<div class="col-xs-3 tf">
 						{{x.status}}
@@ -307,10 +308,10 @@ text-align: left;
 						</div>
 						
 					</div>
-					<div ng-repeat="x in alertsController.vi.recevtEvents">
+					<div ng-repeat="x in viewAlertsController.vi.recevtEvents">
 					<div class="row">
 						<div class="col-xs-6 tf"  >
-						{{x.date|date:'MMM dd yyyy HH.mm.ss'}} 																	
+						{{x.date|date:'yyyy/MM/dd - HH.mm.ss'}} 																	
 						</div>
 						<div class="col-xs-4 tf">
 						{{x.location}}

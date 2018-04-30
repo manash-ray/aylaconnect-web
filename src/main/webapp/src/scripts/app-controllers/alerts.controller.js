@@ -1,12 +1,11 @@
 (function () {
     'use strict';
-
     angular
         .module('app')
         .controller('AlertsController', AlertsController);
 
-    AlertsController.$inject = ['$location','FlashService','$scope','$rootScope','$routeParams','CommonService', 'toastr', '$interval'];
-    function AlertsController($location,FlashService,$scope,$rootScope,$routeParams,CommonService, toastr, $interval) {
+    AlertsController.$inject = ['$location','FlashService','$scope','$rootScope','$routeParams','CommonService', 'toastr', '$interval', 'NgMap', 'Socialshare', 'ngMeta'];
+    function AlertsController($location,FlashService,$scope,$rootScope,$routeParams,CommonService, toastr, $interval, NgMap, Socialshare, ngMeta) {
        
     	var alertsController = this;
     	alertsController.viewAlert = viewAlert;   
@@ -15,7 +14,7 @@
     	alertsController.alerts = [];
     	alertsController.newalert = {};
     	 $scope.properties = [];
-    	 $scope.selctedrule = 'High  Grill  Temp';
+    	 $scope.selctedrule = '';
     	 $scope.rules = [];
     	 $scope.symbols = [];
     	 $scope.models = [];
@@ -32,19 +31,7 @@
         (function initController() {
           
      	
-        	if($location.path() == '/viewalert'){
-	        	var ind = $location.search().p;
-	    		var rul = $location.search().r;
-	    		if(rul){
-	    			alertsController.alerts =  $rootScope.globalsalertsmap[String(rul)];
-	    			alertsController.vi =  alertsController.alerts[Number(ind)];
-	    			CommonService.postData(true,'sweb/alertsRest/loadVi', alertsController.vi).then(function(response){
-	                	alertsController.vi = response;
-	    			});
-	    		}
-	    		
-        	}
-        	
+        	        	
     		if($location.path() == '/alerts'){
         
 	        	
@@ -52,12 +39,14 @@
 	  
 	        		alertsController.alertsmap=response;
 	        		$rootScope.globalsalertsmap = response;
-	        		alertsController.alerts = alertsController.alertsmap[$scope.selctedrule];
+	        		
 	        	     $.each(alertsController.alertsmap, function(key, value) {        	               
 	        	    	 $scope.rules.push(key);        	        
 	        	     });
-	        	        
-
+	        	      if($scope.rules.length > 0) { 
+	        	    	  $scope.selctedrule = 	$scope.rules[0];
+	        	    	  alertsController.alerts = alertsController.alertsmap[$scope.selctedrule];
+	        	      }
 	        		
 	            	
 	        	});
@@ -76,16 +65,16 @@
         	
     		if ($location.path() == '/newalert'){
         	
-	        	$scope.properties.push("WiFi Signal Strength"); 
-	        	$scope.properties.push("Gas Level"); 
-	        	$scope.properties.push("Grill Temp");
-	        	$scope.properties.push("Probe Status");
-	
+	        	$scope.properties.push("WiFi_Signal_Strength"); 
+	        	$scope.properties.push("Power_On"); 
+	        	$scope.properties.push("Grill_Temp");
+	        	$scope.properties.push("Probe_Temp");
+	        	$scope.properties.push("Smoke_On");
+	        	$scope.properties.push("Stand_By_Mode");
+	        	$scope.properties.push("Pre_Heat_Mode");
+	        	$scope.properties.push("Gas_Level");
 	        	
-	        	
-	        	$scope.models.push("AC2700 BBQ");
-	        	$scope.models.push("AC2200 Griddle");
-	        	$scope.models.push("AC2000 Pressure");
+	        	$scope.models.push("AC2700-BBQ");
 	
 	        	
 	        	$scope.symbols.push(">");
@@ -124,16 +113,6 @@
         	}
         }
         
-        $scope.StartTimer = function () {
-           
-            //Initialize the Timer to run every 1000 milliseconds i.e. one second.
-            $scope.Timer = $interval(function () {
-            	CommonService.postData(true,'sweb/alertsRest/loadVi', alertsController.vi).then(function(response){
-            	alertsController.vi = response;
-            	//alertsController.vi.status = 'R';
-            	});
-            }, 10000);
-        };
        
         function addAlert() {
         	if(alertsController.newalert.data && alertsController.newalert.property && alertsController.newalert.symbol && alertsController.newalert.symbol && alertsController.newalert.name){

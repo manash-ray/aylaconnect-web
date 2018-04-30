@@ -1,6 +1,5 @@
 (function() {
 	'use strict';
-
 	/*dependency injections for angularjs */
 	/*define your own directives in filter.js and define here*/
 	var app = angular.module('app', [ 'ngResource', 'ngMessages', 'ui.router',
@@ -8,7 +7,7 @@
 			'infinite-scroll', 'fupApp', 'ngMaterial', 'CKEditorExample',
 			'ngAnimate', 'ui.bootstrap', 'dateParser', 'angular-loading-bar',
 			'HIGHERTHAN', 'YEARDROPDOWN', 'satellizer', 'xeditable', 'toastr',
-			'vsGoogleAutocomplete', 'ngMap', 'numbersOnly',
+			'ngMap', 'numbersOnly',
 			'720kb.socialshare', 'googlechart', 'orgChart', 'ngMeta' ]);
 
 	app.config(config).run(run);
@@ -32,7 +31,7 @@
 				'http://www.ayalaconnect.com/img/shareImage.png');
 		ngMetaProvider
 				.setDefaultTag('og:description',
-						'A System provides easy and smooth entry into Institutes and Schools');
+						'');
 		ngMetaProvider.setDefaultTag('og:title', 'ayalaconnect');
 
 		/*depending on the url the route will redirect to a particular html  */
@@ -163,14 +162,7 @@
 
 		});
 
-		/*takes client id from config.js */
-		$authProvider.facebook({
-			clientId : facebook_client_id
-		});
-
-		$authProvider.google({
-			clientId : google_client_id
-		});
+		
 
 	}
 
@@ -229,8 +221,12 @@
 		
 		/*routescope global variable declaration*/
 
-		$rootScope.globals = getCookie('globals') || {};
-		localStorage.setItem("access_token", getCookie('access_token'));
+		if(getCookie('globals')){
+			$rootScope.globals = getCookie('globals') || {};
+		}
+		if(getCookie('access_token')){
+			localStorage.setItem("access_token", getCookie('access_token'));
+		}
 
 		$rootScope.profileDetails = {};
 
@@ -253,8 +249,8 @@
 			}
 
 			var nonRestrictedPage = true;
-			$.each([ '/changePassword', '/alerts', '/alertsettings','/manageusers','newstaff', 'newalert', 'viewalert',
-					'/success' ], function(index, value) {
+			$.each([ '/changePassword', '/alerts', '/alertsettings','/manageusers','/newstaff', '/newalert', '/viewalert',
+					'/success', '/serviceProvider' , '/deviceDetails'], function(index, value) {
 
 				if ($location.path() == value) {
 					nonRestrictedPage = false;
@@ -263,7 +259,6 @@
 			});
 
 			$('#loginModal').modal('hide');
-			$('#perfdiagnomodal').modal('hide');
 			$('.modal-backdrop').hide();
 			$("body").css("overflow", "auto");
 

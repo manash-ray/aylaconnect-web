@@ -1,12 +1,16 @@
-var projectUrl="http://localhost:9082/aylaconnectcore/";
+var projectUrl="http://ec2-34-228-8-33.compute-1.amazonaws.com/aylaconnectcore/";
 
-var projectWebUrl="http://localhost:9082/aylaconnectweb";
+var projectWebUrl="http://ec2-34-228-8-33.compute-1.amazonaws.com/aylaconnectweb";
+
+//var projectUrl="http://localhost:9082/aylaconnectcore/";
+
+//var projectWebUrl="http://localhost:9082/aylaconnectweb";
 
 var imageUrlPrefix="";
 
-var facebook_login_url="";
+var facebook_login_url=" ";
 
-var google_login_url="";
+var google_login_url=" ";
 // facebook app client id 
 
 var data_site_key=""; // for local 

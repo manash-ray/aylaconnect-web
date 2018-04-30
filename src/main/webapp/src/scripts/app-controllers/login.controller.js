@@ -1,6 +1,5 @@
 ﻿(function () {
 	'use strict';
-
 	angular
 	.module('app')
 	.controller('LoginController', LoginController);
@@ -78,9 +77,9 @@
 					CommonService.postData(true,'sweb/userRest/getUserById', loginController.user,{}).then(function(iresponse){
 
 						var innerResponse=iresponse;
-						innerResponse.profilePicture = "img/defaultprofile.png";
-						innerResponse.profilePicture_70_70 = "img/defaultprofile.png";
-						innerResponse.profilePicture_300_300 ="img/defaultprofile.png";
+						innerResponse.profilePicture = "IMG/defaultprofile.png";
+						innerResponse.profilePicture_70_70 = "IMG/defaultprofile.png";
+						innerResponse.profilePicture_300_300 ="IMG/defaultprofile.png";
 
 					
 						AuthenticationService.SetCredentials(innerResponse.firstname,innerResponse.lastname, response, innerResponse.uuid,innerResponse,response.access_token);
